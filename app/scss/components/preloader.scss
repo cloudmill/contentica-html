@@ -1,0 +1,66 @@
+// variables
+
+$bottom-color: #e12626;
+$mid-color: #f53636;
+$top-color: #ff4848;
+
+$duration: 1s;
+
+$bottom-time-f: ease-in;
+$mid-time-f: linear;
+$top-time-f: ease-out;
+
+// mixins
+
+@mixin position-cover {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+// preloader
+
+.preloader {
+  position: fixed;
+  z-index: 10000;
+  @include position-cover();
+  pointer-events: none;
+}
+
+.preloader--closing {
+  .preloader__item {
+    transform: scaleX(0);
+  }
+}
+
+.preloader--closed {
+  display: none;
+}
+
+// preloader item
+
+.preloader__item {
+  position: absolute;
+  @include position-cover();
+  transform-origin: right;
+  transition-duration: $duration;
+}
+
+.preloader__item--bottom {
+  z-index: 1;
+  background: $bottom-color;
+  transition-timing-function: $bottom-time-f;
+}
+
+.preloader__item--mid {
+  z-index: 2;
+  background: $mid-color;
+  transition-timing-function: $mid-time-f;
+}
+
+.preloader__item--top {
+  z-index: 3;
+  background: $top-color;
+  transition-timing-function: $top-time-f;
+}

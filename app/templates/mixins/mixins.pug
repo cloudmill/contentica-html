@@ -6,8 +6,17 @@
 //- получаем по одному bundle-спрайту всех добавленных иконок на каждый формат (png/svg)
 //- который с помощью background-image добавляется к элементу i
 //- размеры иконки в верстке в таком случае изменяются с помощью font-size
+
 mixin icon(iconName, type = 'png')
     if(type == 'png')
         i(class='icon '+'icon-'+iconName)
     else
         i(class='svg-icon '+'svg-'+iconName)
+
+// preloader
+
+mixin preloader(closed = false)
+  div(class = closed ? "preloader--closed" : "").preloader
+    .preloader__item.preloader__item--bottom
+    .preloader__item.preloader__item--mid
+    .preloader__item.preloader__item--top
