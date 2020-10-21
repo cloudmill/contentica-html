@@ -1,0 +1,22 @@
+//- переменные описанные в этом блоке на странице наследующей этот шаблон
+//- работают как на самой странице, так и в шаблоне (передаются в шаблон)
+block variables
+
+//- подключаем общие миксины для всех страниц, наследующих этот шаблон
+//- страница может дополнить общие миксины подключением/определением необходимых только ей в этом блоке
+block mixins
+  include ../mixins/mixins.pug
+
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title=pageTitle
+    link(rel="stylesheet", href="css/style.min.css")
+  body
+    //- содержание body
+    block content
+    //- подключение результирующего bundle'a js-скриптов (точка входа index.js)
+    block scripts
+      script(src="js/scripts.min.js")
