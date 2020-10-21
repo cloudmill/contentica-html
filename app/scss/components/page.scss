@@ -1,0 +1,34 @@
+//variables
+
+$font-main: "NeueMachina";
+
+// page
+
+.page {
+  background: black;
+  font-family: $font-main;
+  color: white;
+}
+
+// page header
+
+.page__header {
+}
+
+// page header-inner
+
+.page__header-inner {
+  position: relative;
+  padding: 20px;
+  height: 100vh;
+}
+
+// page main
+
+.page__main {
+  padding-top: 360px;
+
+  @media (max-width: $to-mobile) {
+    padding-top: 90px;
+  }
+}

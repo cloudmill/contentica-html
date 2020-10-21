@@ -20,3 +20,15 @@ mixin preloader(closed = false)
     .preloader__item.preloader__item--bottom
     .preloader__item.preloader__item--mid
     .preloader__item.preloader__item--top
+
+// timer
+
+mixin timer
+  .timer
+    span.timer__item.timer__item--hr 00
+    | : 
+    span.timer__item.timer__item--min 00
+    | : 
+    span.timer__item.timer__item--sec 00
+    | : 
+    span.timer__item.timer__item--msec 00
