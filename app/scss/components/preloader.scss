@@ -10,21 +10,12 @@ $bottom-time-f: ease-in;
 $mid-time-f: linear;
 $top-time-f: ease-out;
 
-// mixins
-
-@mixin position-cover {
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-
 // preloader
 
 .preloader {
   position: fixed;
   z-index: 10000;
-  @include position-cover();
+  @include pos-cover();
   pointer-events: none;
 }
 
@@ -42,7 +33,7 @@ $top-time-f: ease-out;
 
 .preloader__item {
   position: absolute;
-  @include position-cover();
+  @include pos-cover();
   transform-origin: right;
   transition-duration: $duration;
 }

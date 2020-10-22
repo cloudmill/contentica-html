@@ -1,0 +1,17 @@
+// page-title
+
+.page-title {
+  font-weight: 300;
+  font-size: 100px;
+  line-height: 90%;
+
+  br {
+    display: none;
+  }
+}
+
+.page-title--line-break {
+  br {
+    display: initial;
+  }
+}

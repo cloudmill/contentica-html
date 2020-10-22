@@ -2,6 +2,8 @@
 
 $font-main: "NeueMachina";
 
+$color-red: #FF4848;
+
 // page
 
 .page {
@@ -20,7 +22,8 @@ $font-main: "NeueMachina";
 .page__header-inner {
   position: relative;
   padding: 20px;
-  height: 100vh;
+  // height: 100vh;
+  min-height: 100vh;
 }
 
 // page main

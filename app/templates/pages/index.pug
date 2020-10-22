@@ -10,6 +10,45 @@ block content
     header.page__header
       .page__header-inner
         +timer
+        .logo
+          img(src="images/contentica.svg", alt="logo").logo__img
+        +focus
+        .table
+          .table__item
+            .table__item-name fps
+            .table__item-value 24
+          .table__item
+            .table__item-name shutter
+            .table__item-value 174.5º
+          .table__item
+            .table__item-name iris
+            .table__item-value t2.2
+        .table
+          .table__item
+            .table__item-name iso
+            .table__item-value 400
+          .table__item
+            .table__item-name wb
+            .table__item-value 5600k
+          .table__item
+            .table__item-name tint
+            .table__item-value 10
+        h1.page-title.page-title--line-break Производим, 
+          br
+          | дистрибутируем, 
+          br
+          | озвучиваем 
+          br
+          | и субтитрируем 
+          br
+          | видеоконтент
+        +battery(0.75)
+        +scroll-down
+        +rec-indicator
+        +time-indicator
+        +time-indicator("red")
+        +time-indicator("gray")
+        +color-indicator
     main.page__main main
     footer.page__footer footer
 

@@ -1,0 +1,57 @@
+// variables
+
+$body-width: 49px;
+$body-height: 22px;
+
+$tail-width: 8px;
+$tail-height: 16px;
+
+$body-tail-gap: 3px;
+
+$charge-transition: 0.5s;
+
+// battery
+// индикатор заряда управляется через battery__charge transform: scaleX(0-1)
+// не через width (чтобы снизить нагрузку на cpu, возникающую при перерисовке/пересчете/перекомпоновке документа)
+// transform: scaleX по возможности задействует gpu и не требует перекомпоновки верстки
+
+.battery {
+  display: flex;
+  align-items: center;
+}
+
+// battery body
+
+.battery__body {
+  position: relative;
+  width: $body-width;
+  height: $body-height;
+  overflow: hidden;
+}
+
+// battery body-border
+
+.battery__body-border {
+  position: absolute;
+  @include pos-cover();
+  border: 2px solid white;
+}
+
+// battery charge
+
+.battery__charge {
+  position: absolute;
+  @include pos-cover();
+  transform-origin: left;
+  background: white;
+  transition: $charge-transition;
+}
+
+// battery tail
+
+.battery__tail {
+  margin-left: $body-tail-gap;
+  width: $tail-width;
+  height: $tail-height;
+  background: white;
+}

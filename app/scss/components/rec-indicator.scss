@@ -1,0 +1,29 @@
+// variables
+
+$size: 60px;
+
+$animation-options: 2s infinite steps(1);
+
+// rec-indicator
+
+.rec-indicator {
+  width: $size;
+  height: $size;
+  background: black;
+}
+
+// rec-indicator dot
+
+.rec-indicator__dot {
+  width: 100%;
+  height: 100%;
+  background: $color-red;
+  border-radius: 50%;
+  animation: rec-indicator $animation-options;
+}
+
+@keyframes rec-indicator {
+  50% {
+    opacity: 0;
+  }
+}

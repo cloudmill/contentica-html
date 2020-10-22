@@ -1,0 +1,66 @@
+// variables
+
+$width: 65px;
+$height: 50px;
+
+// отступ item'a равен его item-size
+$item-size: 8px;
+
+// на mobile все линейные размеры декорации будут уменьшены пропорционально уменьшению width
+$mobile-width: 50px;
+
+// mixins
+
+@mixin focus-item($hor, $vert, $item-size) {
+  #{$hor}: $item-size;
+  #{$vert}: $item-size;
+  width: $item-size;
+  height: $item-size;
+  border-#{$hor}: 1px solid white;
+  border-#{$vert}: 1px solid white;
+}
+
+@mixin focus-items($item-size) {
+  .focus__item--left-top {
+    @include focus-item(left, top, $item-size);
+  }
+  
+  .focus__item--left-bottom {
+    @include focus-item(left, bottom, $item-size);
+  }
+  
+  .focus__item--right-top {
+    @include focus-item(right, top, $item-size);
+  }
+  
+  .focus__item--right-bottom {
+    @include focus-item(right, bottom, $item-size);
+  }
+}
+
+// focus
+
+.focus {
+  position: relative;
+  width: $width;
+  height: $height;
+  border: 1px solid white;
+
+  @media (max-width: $to-mobile) {
+    width: $mobile-width;
+    height: $mobile-width * ($height / $width);
+  }
+}
+
+// focus item
+
+.focus__item {
+  position: absolute;
+}
+
+@include focus-items($item-size);
+
+@media (max-width: $to-mobile) {
+  @include focus-items($mobile-width * ($item-size / $width));
+}
+

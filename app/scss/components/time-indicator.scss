@@ -1,0 +1,79 @@
+// variables
+
+$color-default: green;
+$color-gray: #929292;
+
+$indicator-gap: 12px;
+
+$title-height: 30px;
+$title-gap: 3px;
+
+// mixins
+
+@mixin indicator-font {
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 90%;
+  text-transform: uppercase;
+}
+
+@mixin indicator-color($color) {
+  .time-indicator__mode {
+    background: $color;
+  }
+
+  .time-indicator__type {
+    background: $color;
+  }
+}
+
+@mixin title-item {
+  padding: 0 10px;
+  padding-top: 4px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include indicator-font();
+}
+
+// time-indicator
+
+.time-indicator--theme--red {
+  @include indicator-color($color-red);
+}
+
+.time-indicator--theme--gray {
+  @include indicator-color($color-gray);
+}
+
+// time-indicator title
+
+.time-indicator__title {
+  height: $title-height;
+  display: flex;
+}
+
+// time-indicator mode
+
+.time-indicator__mode {
+  @include title-item();
+  min-width: 30px;
+  background: $color-default;
+}
+
+// time-indicator type
+
+.time-indicator__type {
+  @include title-item();
+  margin-left: $title-gap;
+  min-width: 76px;
+  background: $color-default;
+}
+
+// time-indicator value
+
+.time-indicator__value {
+  margin-top: $indicator-gap;
+  @include indicator-font();
+}

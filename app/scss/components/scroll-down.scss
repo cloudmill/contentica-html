@@ -1,0 +1,40 @@
+// vatiables
+
+$arrow-size: 8px;
+$arrow-right: 1px;
+$arrow-bottom: 4px;
+
+// scroll down
+
+// здесь обертка scroll-down display: flex для того
+// чтобы ограничить ширину scroll-down__button по ширине текста
+// (элементы flex-контейнера по-умолчанию принимают ширину контента)
+// и не использовать вместо обертки сразу inline-block "кнопку"
+// (display: inline-block ограничивает контейнер по ширине контента)
+// т.е. оставаться блочным
+.scroll-down {
+  display: flex;
+}
+
+// scroll-down button
+
+.scroll-down__button {
+  position: relative;
+  font-size: 20px;
+  line-height: 90%;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &::before {
+    position: absolute;
+    right: $arrow-right;
+    bottom: $arrow-bottom;
+    transform: translate(-1px, -1px) rotate(45deg);
+    content: "";
+    display: block;
+    width: $arrow-size;
+    height: $arrow-size;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+  }
+}

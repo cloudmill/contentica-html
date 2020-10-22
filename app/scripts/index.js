@@ -50,7 +50,7 @@ function timer() {
     prevFrameTime = nextFrameTime;
     nextFrameTime = (new Date()).getTime();
 
-    countedTime += nextFrameTime - prevFrameTime;
+    countedTime += (nextFrameTime - prevFrameTime) > 0 ? (nextFrameTime - prevFrameTime) : 0;
 
     updateTime(countedTime);
 

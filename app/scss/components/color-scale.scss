@@ -1,0 +1,74 @@
+// variables
+
+$color-red: #CF2525;
+$color-yellow: #CFBE25;
+$color-green: #25CF3E;
+
+$value-color: #25CF3E;
+
+// color-scale
+
+.color-scale {
+  position: relative;
+  min-height: 5px; // опционально
+  overflow: hidden;
+}
+
+// color-scale background
+
+.color-scale__background {
+  @include pos-cover();
+  position: absolute;
+  z-index: 1;
+  display: flex;
+}
+
+// color-scale background-item
+
+// background-item - элемент flex-контейнера
+// и по-умолчанию растягивается по высоте контейнера (align-self: normal)
+// следовательно height: 100% не нужен
+.color-scale__background-item {
+  opacity: 0.1;
+
+  &:last-child {
+    flex-grow: 1;
+  }
+}
+
+.color-scale__background-item--red {
+  background: $color-red;
+}
+
+.color-scale__background-item--yellow {
+  background: $color-yellow;
+}
+
+.color-scale__background-item--green {
+  background: $color-green;
+}
+
+// color-scale value
+
+.color-scale__value {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+}
+
+// color-scale value-body
+
+// по высоте аналогично background-item
+.color-scale__value-body {
+  background: $value-color;
+}
+
+// color-scale value-body
+
+// по высоте аналогично background-item
+.color-scale__value-tail {
+  background: $value-color;
+}
+
+

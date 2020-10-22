@@ -1,0 +1,43 @@
+// variables
+
+$font-size: 20px;
+$line-height: 90%;
+
+$col-gap: 40px;
+$row-gap: 18px;
+
+// mixins
+
+@mixin item-font {
+  font-weight: lighter;
+  font-size: $font-size;
+  line-height: $line-height;
+  text-transform: uppercase;
+}
+
+// table
+
+.table {
+  display: flex;
+}
+
+// table item
+
+.table__item {
+  &:not(:first-child) {
+    margin-left: $col-gap;
+  }
+}
+
+// teble item-name
+
+.table__item-name {
+  @include item-font();
+}
+
+// table item-value
+
+.table__item-value {
+  margin-top: $row-gap;
+  @include item-font();
+}
