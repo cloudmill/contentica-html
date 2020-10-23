@@ -1,8 +1,8 @@
 // variables
 
-$color-red: #CF2525;
-$color-yellow: #CFBE25;
-$color-green: #25CF3E;
+$background-color-red: #CF2525;
+$background-color-yellow: #CFBE25;
+$background-color-green: #25CF3E;
 
 $value-color: #25CF3E;
 
@@ -37,15 +37,15 @@ $value-color: #25CF3E;
 }
 
 .color-scale__background-item--red {
-  background: $color-red;
+  background: $background-color-red;
 }
 
 .color-scale__background-item--yellow {
-  background: $color-yellow;
+  background: $background-color-yellow;
 }
 
 .color-scale__background-item--green {
-  background: $color-green;
+  background: $background-color-green;
 }
 
 // color-scale value

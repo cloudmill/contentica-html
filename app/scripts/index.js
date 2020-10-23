@@ -6,12 +6,18 @@ $(document).ready(function() {
 });
 
 window.onload = function (event) {
+  // preloader
   // работа прелоадера проверена с помощью цикла for на 100000 итераций (небольшая задержка)
   // запущенного на событии jquery ready
   closePreloader();
 
   // timer
+  // timer запускается здесь (onload)
+  // поскольку именно здесь закрывается preloader
   timer();
+
+  // dot-link
+  dotLinks();
 };
 
 function closePreloader() {
@@ -87,4 +93,98 @@ function timer() {
 
     return time;
   }
+}
+
+function dotLinks() {
+  let windowWidth = $(window).width();
+
+  const components = $(".dot-link");
+
+  components.each((index, element) => {
+    const
+      component = $(element),
+      tail = component.find(".dot-link__tail");
+    
+    const
+      DOT_ACTIVE = "dot-link__dot--active",
+      LINK_ACTIVE = "dot-link__link--active",
+      LINK_MOVE_ACTIVE = "dot-link__link-move--active",
+      PROPERTY_NAME = "right";
+
+    const
+      link = component.find(".dot-link__link"),
+      linkMove = component.find(".dot-link__link-move"),
+      dotTrack = tail.find(".dot-link__dot-track"),
+      dot = dotTrack.find(".dot-link__dot");
+
+    let componentState = {
+      linkHover: false,
+      dotActiveTransitionEnd: false,
+      dotNoActiveTransitionEnd: true
+    };
+
+    link.on("mouseover", () => {
+      if (windowWidth > 1200) {
+        componentState.linkHover = true;
+        
+        if (
+          !dot.hasClass(DOT_ACTIVE)
+          && componentState.dotNoActiveTransitionEnd
+        ) {
+          dot.addClass(DOT_ACTIVE);
+          link.addClass(LINK_ACTIVE);
+          linkMove.addClass(LINK_MOVE_ACTIVE);
+          
+          componentState.dotNoActiveTransitionEnd = false;
+        }
+      }
+    });
+
+    link.on("mouseout", () => {
+      if (windowWidth > 1200) {
+        componentState.linkHover = false;
+        
+        if (
+          dot.hasClass(DOT_ACTIVE)
+          && componentState.dotActiveTransitionEnd
+        ) {
+          dot.removeClass(DOT_ACTIVE);
+          link.removeClass(LINK_ACTIVE);
+          linkMove.removeClass(LINK_MOVE_ACTIVE);
+          
+          componentState.dotActiveTransitionEnd = false;
+        }
+      }
+    });
+
+    dot.on("transitionend", function (event) {
+      if (event.originalEvent.propertyName == PROPERTY_NAME) {
+        if (dot.hasClass(DOT_ACTIVE)) {
+          componentState.dotActiveTransitionEnd = true;
+          
+          if (!componentState.linkHover) {
+            dot.removeClass(DOT_ACTIVE);
+            link.removeClass(LINK_ACTIVE);
+            linkMove.removeClass(LINK_MOVE_ACTIVE);
+            
+            componentState.dotActiveTransitionEnd = false;
+          }
+        } else {
+          componentState.dotNoActiveTransitionEnd = true;
+          
+          if (componentState.linkHover) {
+            dot.addClass(DOT_ACTIVE);
+            link.addClass(LINK_ACTIVE);
+            linkMove.addClass(LINK_MOVE_ACTIVE);
+            
+            componentState.dotNoActiveTransitionEnd = false;
+          }
+        }
+      }
+    });
+  })
+
+  $(window).resize(() => {
+    windowWidth = $(window).width();
+  });
 }
