@@ -22,7 +22,60 @@ window.onload = function (event) {
   camera();
 
   battery();
+
+  decorFade();
 };
+
+function decorFade() {
+  const DECOR = [
+    ".table",
+    ".focus",
+    ".timer",
+    ".header__line--bottom"
+  ];
+
+  let fadeDist = $(window).height();
+  let fadeFinish = fadeDist;
+
+  $(window).resize(() => {
+    fadeDist = $(window).height();
+    fadeFinish = fadeDist;
+  });
+  
+  let outFade;
+
+  if (pageYOffset + $(window).height() > $(document).height() - fadeFinish) {
+    const fadeProgress = ((pageYOffset + $(window).height()) - ($(document).height() - fadeFinish)) / fadeDist;
+
+    DECOR.forEach((item) => {
+      $(item).css("opacity", 1 - fadeProgress);
+    });
+
+    outFade = false;
+  } else {
+    outFade = true;
+  }
+
+  $(window).scroll(() => {
+    if (pageYOffset + $(window).height() > $(document).height() - fadeFinish) {
+      const fadeProgress = ((pageYOffset + $(window).height()) - ($(document).height() - fadeFinish)) / fadeDist;
+
+      DECOR.forEach((item) => {
+        $(item).css("opacity", 1 - fadeProgress);
+      });
+
+      if (outFade) {
+        outFade = false;
+      }
+    } else if (!outFade) {
+      DECOR.forEach((item) => {
+        $(item).css("opacity", 1);
+      });
+
+      outFade = true;
+    }
+  });
+}
 
 function battery() {
   $(window).scroll(() => {
