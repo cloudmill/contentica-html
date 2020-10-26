@@ -7,6 +7,18 @@
   white-space: nowrap;
 }
 
+.timer--right-top {
+  @media (min-width: 1201px) {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+  }
+
+  @media (max-width: 1480px) {
+    top: calc(20px + 54px + 20px);
+  }
+}
+
 // timer item
 
 .timer__item {

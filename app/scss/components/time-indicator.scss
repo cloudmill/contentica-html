@@ -47,6 +47,10 @@ $title-gap: 3px;
   @include indicator-color($color-gray);
 }
 
+.time-indicator--margin-left {
+  margin-left: 20px;
+}
+
 // time-indicator title
 
 .time-indicator__title {

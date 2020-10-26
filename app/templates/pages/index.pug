@@ -11,9 +11,9 @@ block content
     header.page__header
       .page__header-inner.header
         .header__line
-          .header__line
+          .header__line.header__line--left-top
             +focus
-            .table
+            .table.table--margin-left.table--left
               .table__item
                 .table__item-name fps
                 .table__item-value 24
@@ -23,7 +23,7 @@ block content
               .table__item
                 .table__item-name iris
                 .table__item-value t2.2
-          .table
+          .table.table--right-top
             .table__item
               .table__item-name iso
               .table__item-value 400
@@ -33,33 +33,12 @@ block content
             .table__item
               .table__item-name tint
               .table__item-value 10
-        .header__line
-          .logo
+        .header__line.header__line--margin-top
+          .logo.logo--in-header
             img(src="images/contentica.svg", alt="logo").logo__img
-          +timer
-            
-        +focus
-        .table
-          .table__item
-            .table__item-name fps
-            .table__item-value 24
-          .table__item
-            .table__item-name shutter
-            .table__item-value 174.5º
-          .table__item
-            .table__item-name iris
-            .table__item-value t2.2
-        .table
-          .table__item
-            .table__item-name iso
-            .table__item-value 400
-          .table__item
-            .table__item-name wb
-            .table__item-value 5600k
-          .table__item
-            .table__item-name tint
-            .table__item-value 10
-        h1.page-title.page-title--line-break Производим, 
+          +timer("timer--right-top")
+        h1.page-title.page-title--line-break.header__title
+          | Производим, 
           br
           | дистрибутируем, 
           br
@@ -68,29 +47,40 @@ block content
           | и субтитрируем 
           br
           | видеоконтент
-        +battery(0.75)
-        +scroll-down
-        +rec-indicator
-        +time-indicator
-        +time-indicator("red")
-        +time-indicator("gray")
-        +color-indicator
-        .dot-link
-          .dot-link__link-track
-            a(href="tel: 8 495 639 99 24").dot-link__link +7 495 639-99-24
-            .dot-link__link-move
-            .dot-link__link-over-move
-          .dot-link__tail
-            .dot-link__dot-track
-              .dot-link__dot
-        .dot-link
-          .dot-link__link-track     
-            a(href="mailto: info@contentica.ru").dot-link__link info@contentica.ru
-            .dot-link__link-move
-            .dot-link__link-over-move
-          .dot-link__tail
-            .dot-link__dot-track
-              .dot-link__dot
+        .header__line.header__line--bottom
+          .header__group.header__group--battery-scroll
+            +battery(0)
+            +scroll-down("scroll-down--margin-top")
+          .header__line
+            +rec-indicator
+            .header__line.header__line--margin-left
+              +time-indicator("red")
+              +time-indicator("gray", "time-indicator--margin-left")
+          +color-indicator("color-indicator--flex-grow")
+        //- +battery(0.75)
+        //- +scroll-down
+        //- +rec-indicator
+        //- +time-indicator
+        //- +time-indicator("red")
+        //- +time-indicator("gray")
+        //- +color-indicator
+        //- .dot-link
+        //-   .dot-link__link-track
+        //-     a(href="tel: 8 495 639 99 24").dot-link__link +7 495 639-99-24
+        //-     .dot-link__link-move
+        //-     .dot-link__link-over-move
+        //-   .dot-link__tail
+        //-     .dot-link__dot-track
+        //-       .dot-link__dot
+        //- .dot-link
+        //-   .dot-link__link-track     
+        //-     a(href="mailto: info@contentica.ru").dot-link__link info@contentica.ru
+        //-     .dot-link__link-move
+        //-     .dot-link__link-over-move
+        //-   .dot-link__tail
+        //-     .dot-link__dot-track
+        //-       .dot-link__dot
+    
     main.page__main
     footer.page__footer
 

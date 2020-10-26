@@ -5,6 +5,15 @@
   height: 40px;
 }
 
+.logo--in-header {
+  @media (min-width: 1201px) {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
 // logo img
 
 .logo__img {

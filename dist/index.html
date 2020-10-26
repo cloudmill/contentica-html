@@ -16,14 +16,14 @@
       <header class="page__header">
         <div class="page__header-inner header">
           <div class="header__line">
-            <div class="header__line">
+            <div class="header__line header__line--left-top">
               <div class="focus">
                 <div class="focus__item focus__item--left-top"></div>
                 <div class="focus__item focus__item--left-bottom"></div>
                 <div class="focus__item focus__item--right-top"></div>
                 <div class="focus__item focus__item--right-bottom"></div>
               </div>
-              <div class="table">
+              <div class="table table--margin-left table--left">
                 <div class="table__item">
                   <div class="table__item-name">fps</div>
                   <div class="table__item-value">24</div>
@@ -38,7 +38,7 @@
                 </div>
               </div>
             </div>
-            <div class="table">
+            <div class="table table--right-top">
               <div class="table__item">
                 <div class="table__item-name">iso</div>
                 <div class="table__item-value">400</div>
@@ -53,9 +53,9 @@
               </div>
             </div>
           </div>
-          <div class="header__line">
-            <div class="logo"><img class="logo__img" src="images/contentica.svg" alt="logo"></div>
-            <div class="timer">
+          <div class="header__line header__line--margin-top">
+            <div class="logo logo--in-header"><img class="logo__img" src="images/contentica.svg" alt="logo"></div>
+            <div class="timer--right-top timer">
               <div class="timer__item timer__item--hr">00</div>
               <div class="timer__separator">:</div>
               <div class="timer__item timer__item--min">00</div>
@@ -65,137 +65,82 @@
               <div class="timer__item timer__item--msec">00</div>
             </div>
           </div>
-          <div class="focus">
-            <div class="focus__item focus__item--left-top"></div>
-            <div class="focus__item focus__item--left-bottom"></div>
-            <div class="focus__item focus__item--right-top"></div>
-            <div class="focus__item focus__item--right-bottom"></div>
-          </div>
-          <div class="table">
-            <div class="table__item">
-              <div class="table__item-name">fps</div>
-              <div class="table__item-value">24</div>
-            </div>
-            <div class="table__item">
-              <div class="table__item-name">shutter</div>
-              <div class="table__item-value">174.5º</div>
-            </div>
-            <div class="table__item">
-              <div class="table__item-name">iris</div>
-              <div class="table__item-value">t2.2</div>
-            </div>
-          </div>
-          <div class="table">
-            <div class="table__item">
-              <div class="table__item-name">iso</div>
-              <div class="table__item-value">400</div>
-            </div>
-            <div class="table__item">
-              <div class="table__item-name">wb</div>
-              <div class="table__item-value">5600k</div>
-            </div>
-            <div class="table__item">
-              <div class="table__item-name">tint</div>
-              <div class="table__item-value">10</div>
-            </div>
-          </div>
-          <h1 class="page-title page-title--line-break">Производим, <br>дистрибутируем, <br>озвучиваем <br>и субтитрируем <br>видеоконтент</h1>
-          <div class="battery">
-            <div class="battery__body">
-              <div class="battery__body-border"></div>
-              <div class="battery__charge" style="transform: scaleX(0.75)"></div>
-            </div>
-            <div class="battery__tail"></div>
-          </div>
-          <div class="scroll-down">
-            <div class="scroll-down__button">листайте<br/>вниз</div>
-          </div>
-          <div class="rec-indicator">
-            <div class="rec-indicator__dot"></div>
-          </div>
-          <div class="time-indicator">
-            <div class="time-indicator__title">
-              <div class="time-indicator__mode">1</div>
-              <div class="time-indicator__type">Aoo1</div>
-            </div>
-            <div class="time-indicator__value">90 min</div>
-          </div>
-          <div class="time-indicator--theme--red time-indicator">
-            <div class="time-indicator__title">
-              <div class="time-indicator__mode">1</div>
-              <div class="time-indicator__type">Aoo1</div>
-            </div>
-            <div class="time-indicator__value">90 min</div>
-          </div>
-          <div class="time-indicator--theme--gray time-indicator">
-            <div class="time-indicator__title">
-              <div class="time-indicator__mode">1</div>
-              <div class="time-indicator__type">Aoo1</div>
-            </div>
-            <div class="time-indicator__value">90 min</div>
-          </div>
-          <div class="color-indicator">
-            <div class="color-indicator__list">
-              <div class="color-indicator__item">
-                <div class="color-indicator__item-number">1</div>
-                <div class="color-indicator__item-scale color-scale">
-                  <div class="color-scale__background">
-                    <div class="color-scale__background-item color-scale__background-item--green" style="width: 51.127819548872175%"></div>
-                    <div class="color-scale__background-item color-scale__background-item--yellow" style="width: 28.57142857142857%"></div>
-                    <div class="color-scale__background-item color-scale__background-item--red"></div>
-                  </div>
-                  <div class="color-scale__value">
-                    <div class="color-scale__value-body" style="width: 29.2406015037594%"></div>
-                    <div class="color-scale__value-tail" style="width: 1.8796992481203008%; margin-left: 1.8796992481203008%"></div>
-                  </div>
+          <h1 class="page-title page-title--line-break header__title">Производим, <br>дистрибутируем, <br>озвучиваем <br>и субтитрируем <br>видеоконтент</h1>
+          <div class="header__line header__line--bottom">
+            <div class="header__group header__group--battery-scroll">
+              <div class="battery">
+                <div class="battery__body">
+                  <div class="battery__body-border"></div>
+                  <div class="battery__charge" style="transform: scaleX(0)"></div>
                 </div>
+                <div class="battery__tail"></div>
               </div>
-              <div class="color-indicator__item">
-                <div class="color-indicator__item-number">2</div>
-                <div class="color-indicator__item-scale color-scale">
-                  <div class="color-scale__background">
-                    <div class="color-scale__background-item color-scale__background-item--green" style="width: 51.127819548872175%"></div>
-                    <div class="color-scale__background-item color-scale__background-item--yellow" style="width: 28.57142857142857%"></div>
-                    <div class="color-scale__background-item color-scale__background-item--red"></div>
+              <div class="scroll-down--margin-top scroll-down">
+                <div class="scroll-down__button">листайте<br/>вниз</div>
+              </div>
+            </div>
+            <div class="header__line">
+              <div class="rec-indicator">
+                <div class="rec-indicator__dot"></div>
+              </div>
+              <div class="header__line header__line--margin-left">
+                <div class="undefined time-indicator--theme--red time-indicator">
+                  <div class="time-indicator__title">
+                    <div class="time-indicator__mode">1</div>
+                    <div class="time-indicator__type">Aoo1</div>
                   </div>
-                  <div class="color-scale__value">
-                    <div class="color-scale__value-body" style="width: 26.240601503759397%"></div>
-                    <div class="color-scale__value-tail" style="width: 1.8796992481203008%; margin-left: 1.8796992481203008%"></div>
+                  <div class="time-indicator__value">90 min</div>
+                </div>
+                <div class="time-indicator--margin-left time-indicator--theme--gray time-indicator">
+                  <div class="time-indicator__title">
+                    <div class="time-indicator__mode">1</div>
+                    <div class="time-indicator__type">Aoo1</div>
                   </div>
+                  <div class="time-indicator__value">90 min</div>
                 </div>
               </div>
             </div>
-            <div class="color-indicator__scale">
-              <div class="color-indicator__scale-item">-50</div>
-              <div class="color-indicator__scale-item">-40</div>
-              <div class="color-indicator__scale-item">-30</div>
-              <div class="color-indicator__scale-item">-25</div>
-              <div class="color-indicator__scale-item">-20</div>
-              <div class="color-indicator__scale-item">-15</div>
-              <div class="color-indicator__scale-item">-10</div>
-              <div class="color-indicator__scale-item">-5</div>
-              <div class="color-indicator__scale-item">0</div>
-            </div>
-          </div>
-          <div class="dot-link">
-            <div class="dot-link__link-track"><a class="dot-link__link" href="tel: 8 495 639 99 24">+7 495 639-99-24</a>
-              <div class="dot-link__link-move"></div>
-              <div class="dot-link__link-over-move"></div>
-            </div>
-            <div class="dot-link__tail">
-              <div class="dot-link__dot-track">
-                <div class="dot-link__dot"></div>
+            <div class="color-indicator--flex-grow color-indicator">
+              <div class="color-indicator__list">
+                <div class="color-indicator__item">
+                  <div class="color-indicator__item-number">1</div>
+                  <div class="color-indicator__item-scale color-scale">
+                    <div class="color-scale__background">
+                      <div class="color-scale__background-item color-scale__background-item--green" style="width: 51.127819548872175%"></div>
+                      <div class="color-scale__background-item color-scale__background-item--yellow" style="width: 28.57142857142857%"></div>
+                      <div class="color-scale__background-item color-scale__background-item--red"></div>
+                    </div>
+                    <div class="color-scale__value">
+                      <div class="color-scale__value-body" style="width: 29.2406015037594%"></div>
+                      <div class="color-scale__value-tail" style="width: 1.8796992481203008%; margin-left: 1.8796992481203008%"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="color-indicator__item">
+                  <div class="color-indicator__item-number">2</div>
+                  <div class="color-indicator__item-scale color-scale">
+                    <div class="color-scale__background">
+                      <div class="color-scale__background-item color-scale__background-item--green" style="width: 51.127819548872175%"></div>
+                      <div class="color-scale__background-item color-scale__background-item--yellow" style="width: 28.57142857142857%"></div>
+                      <div class="color-scale__background-item color-scale__background-item--red"></div>
+                    </div>
+                    <div class="color-scale__value">
+                      <div class="color-scale__value-body" style="width: 26.240601503759397%"></div>
+                      <div class="color-scale__value-tail" style="width: 1.8796992481203008%; margin-left: 1.8796992481203008%"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="dot-link">
-            <div class="dot-link__link-track">    <a class="dot-link__link" href="mailto: info@contentica.ru">info@contentica.ru</a>
-              <div class="dot-link__link-move"></div>
-              <div class="dot-link__link-over-move"></div>
-            </div>
-            <div class="dot-link__tail">
-              <div class="dot-link__dot-track">
-                <div class="dot-link__dot"></div>
+              <div class="color-indicator__scale">
+                <div class="color-indicator__scale-item">-50</div>
+                <div class="color-indicator__scale-item">-40</div>
+                <div class="color-indicator__scale-item">-30</div>
+                <div class="color-indicator__scale-item">-25</div>
+                <div class="color-indicator__scale-item">-20</div>
+                <div class="color-indicator__scale-item">-15</div>
+                <div class="color-indicator__scale-item">-10</div>
+                <div class="color-indicator__scale-item">-5</div>
+                <div class="color-indicator__scale-item">0</div>
               </div>
             </div>
           </div>

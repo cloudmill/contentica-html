@@ -21,6 +21,22 @@ $row-gap: 18px;
   display: flex;
 }
 
+.table--margin-left {
+  margin-left: 20px;
+}
+
+.table--right-top {
+  @media (min-width: 1201px) {
+    position: fixed;
+    top: 20px;
+    right: calc(40px + 265px + 20px);
+  }
+
+  @media (max-width: 1470px) {
+    right: 20px;
+  }
+}
+
 // table item
 
 .table__item {

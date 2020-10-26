@@ -23,8 +23,8 @@ mixin preloader(closed = false)
 
 //- timer
 
-mixin timer
-  .timer
+mixin timer(classList)
+  div(class = classList).timer
     .timer__item.timer__item--hr 00
     .timer__separator :
     .timer__item.timer__item--min 00
@@ -53,8 +53,8 @@ mixin battery(charge = 1)
 
 //- scroll down
 
-mixin scroll-down
-  .scroll-down
+mixin scroll-down(classList)
+  div(class = classList).scroll-down
     .scroll-down__button листайте
       br
       | вниз
@@ -67,8 +67,8 @@ mixin rec-indicator
 
 //- time-indicator
 
-mixin time-indicator(theme)
-  div(class = theme ? "time-indicator--theme--" + theme : "").time-indicator
+mixin time-indicator(theme, classList)
+  div(class = classList + (theme ? " time-indicator--theme--" + theme : "")).time-indicator
     .time-indicator__title
       .time-indicator__mode 1
       .time-indicator__type Aoo1
@@ -104,8 +104,8 @@ mixin color-scale(value = 0.25, classList = "")
 
 //- color-indicator
 
-mixin color-indicator
-  .color-indicator
+mixin color-indicator(classList)
+  div(class = classList).color-indicator
     .color-indicator__list
       each item in [{ number: 1, value: 0.33 }, { number: 2, value: 0.3 }]
         .color-indicator__item
