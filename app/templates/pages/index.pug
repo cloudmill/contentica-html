@@ -59,20 +59,33 @@ block content
           +color-indicator("color-indicator--flex-grow")
     main.page__main
     footer.page__footer
-      .dot-link
-        .dot-link__link-track
-          a(href="tel: 8 495 639 99 24").dot-link__link +7 495 639-99-24
-          .dot-link__link-move
-          .dot-link__link-over-move
-        .dot-link__tail
-          .dot-link__dot-track
-            .dot-link__dot
-      .dot-link
-        .dot-link__link-track     
-          a(href="mailto: info@contentica.ru").dot-link__link info@contentica.ru
-          .dot-link__link-move
-          .dot-link__link-over-move
-        .dot-link__tail
-          .dot-link__dot-track
-            .dot-link__dot
-
+      .page__footer-inner.footer
+        .dot-link
+          .dot-link__link-track
+            a(href="tel: 8 495 639 99 24").dot-link__link +7 495 639-99-24
+            .dot-link__link-move
+            .dot-link__link-over-move
+          .dot-link__tail
+            .dot-link__dot-track
+              .dot-link__dot
+        .dot-link
+          .dot-link__link-track     
+            a(href="mailto: info@contentica.ru").dot-link__link info@contentica.ru
+            .dot-link__link-move
+            .dot-link__link-over-move
+          .dot-link__tail
+            .dot-link__dot-track
+              .dot-link__dot
+        .footer__line.footer__line--align-end.footer__line--padding-right.footer__line--margin-top
+          .footer__group
+            .footer__item © 2020 Contentica
+            .footer__item.footer__item--margin-top Сайт сделан в 
+              a(href="").footer__link.footer__link--cloudmill.simple-link CloudMill
+          .footer__group
+            .footer__item.footer__item--font-size--30 Москва,
+              br
+              | Лужнецкая набережная,
+              br
+              | 2/4 дом 3, офис 107
+            .footer__item.footer__item--margin-top
+              a(href="").footer__link.footer__link--on-map.simple-link На карте
