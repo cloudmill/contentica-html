@@ -26,7 +26,61 @@ window.onload = function (event) {
   decorFade();
 
   pageTitleFade();
+
+  simpleLink();
 };
+
+function simpleLink() {
+  $(".simple-link").each(function () {
+    const simpleLink = $(this);
+
+    let hover = false;
+
+    simpleLink.mouseover(() => {
+      hover = true;
+
+      if (simpleLink.hasClass("simple-link--closed")) {
+        simpleLink.removeClass("simple-link--closed");
+        
+        simpleLink.addClass("simple-link--openning");
+      }
+    });
+
+    simpleLink.mouseout(() => {
+      hover = false;
+
+      if (simpleLink.hasClass("simple-link--opened")) {
+        simpleLink.removeClass("simple-link--opened");
+
+        simpleLink.addClass("simple-link--closing");
+      }
+    });
+
+    simpleLink.on("transitionend", () => {
+      if (simpleLink.hasClass("simple-link--openning")) {
+        simpleLink.removeClass("simple-link--openning");
+
+        console.log(hover);
+
+        if (hover) {
+          simpleLink.addClass("simple-link--opened");
+        } else {
+          simpleLink.addClass("simple-link--closing");
+        }
+      } else {
+        simpleLink.removeClass("simple-link--closing");
+
+        console.log(hover);
+
+        if (hover) {
+          simpleLink.addClass("simple-link--openning");
+        } else {
+          simpleLink.addClass("simple-link--closed");
+        }
+      }
+    });
+  });
+}
 
 function pageTitleFade() {
   let fadeStart = $(".page__main")[0].offsetTop + $(window).height() / 2;

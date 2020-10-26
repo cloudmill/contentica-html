@@ -1,0 +1,40 @@
+// vars
+
+$duration: 0.6s;
+
+$cubic-bezier-1-x: 0.34;
+$cubic-bezier-1-y: 1.6;
+$cubic-bezier-2-x: 0.7;
+$cubic-bezier-2-y: 1;
+
+$function: cubic-bezier($cubic-bezier-1-x,
+  $cubic-bezier-1-y,
+  $cubic-bezier-2-x,
+  $cubic-bezier-2-y);
+$reverse-function: cubic-bezier(1 - $cubic-bezier-2-x,
+  1 - $cubic-bezier-2-y,
+  1 - $cubic-bezier-1-x,
+  1 - $cubic-bezier-1-y);
+
+// simple-link
+
+.simple-link {
+}
+
+.simple-link--openning {
+  padding-left: 1.5em;
+  transition: $duration $function;
+}
+
+.simple-link--opened {
+  padding-left: 1.5em;
+}
+
+.simple-link--closing {
+  padding-left: 0;
+  transition: $duration $reverse-function;
+}
+
+.simple-link--closed {
+  padding-left: 0;
+}
