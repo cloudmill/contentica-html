@@ -1,0 +1,28 @@
+.camera {
+  position: fixed;
+  top: 120px;
+  right: calc(50% - 760px);
+  transform-origin: 77.5% 92%;
+  will-change: transform;
+
+  @media (max-width: 1200px) {
+    right: calc(25% - 300px);
+    width: 890px;
+    transform-origin: 82.5% 95%;
+  }
+
+  @media (max-width: 960px) {
+    top: 155px;
+  }
+
+  @media (max-width: 640px) {
+    top: 245px;
+    right: calc(50% - 370px);
+    width: 630px;
+  }
+
+  @media (max-width: 480px) {
+    top: 210px;
+    width: 580px;
+  }
+}

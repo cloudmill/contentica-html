@@ -1,4 +1,5 @@
 import $, { timers } from "jquery";
+import { Camera } from "three";
 import App from "./main.js";
 
 $(document).ready(function() {
@@ -18,7 +19,30 @@ window.onload = function (event) {
 
   // dot-link
   dotLinks();
+
+  camera();
 };
+
+function camera() {
+  const headerHeight = $(".page__header").height();
+  const scaleDistanceTail = 270;
+  const scaleDistance = headerHeight + scaleDistanceTail;
+
+  $(window).scroll((event) => {
+    const SCALE_DISTANCE = 270;
+
+    if (pageYOffset <= SCALE_DISTANCE) {
+      const progress = pageYOffset / SCALE_DISTANCE;
+
+      $(".camera").css("transform", `scale(${1 + progress}, ${1 + progress})`);
+      $(".camera").css("opacity", 1 - 0.6 * progress);
+    } else {
+      const progress = (pageYOffset - SCALE_DISTANCE) / ($(document).height() - SCALE_DISTANCE - $(".page__header").height());
+      $(".camera").css("transform", `scale(${2 - 0.35 * progress}, ${2 - 0.35 * progress}) translate(${-80 * progress}px, ${-80 * progress}px)`);
+      $(".camera").css("opacity", 0.4 * (1 - progress));
+    }
+  });
+}
 
 function closePreloader() {
   const preloader = $(".preloader");

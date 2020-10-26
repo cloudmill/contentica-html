@@ -22,7 +22,7 @@ $color-red: #FF4848;
 .page__header-inner {
   position: relative;
   padding: 20px;
-  // height: 100vh;
+  height: 100vh;
   min-height: 100vh;
 }
 
@@ -30,8 +30,15 @@ $color-red: #FF4848;
 
 .page__main {
   padding-top: 360px;
+  height: 300vh; // test
+  border-top: 2px solid white; // test
 
   @media (max-width: $to-mobile) {
     padding-top: 90px;
   }
+}
+
+.page__footer {
+  height: 100vh;
+  border-top: 2px solid white;
 }
