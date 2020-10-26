@@ -6,13 +6,38 @@ block variables
 
 block content
   +preloader
+  img(src="images/camera.png", alt="").camera
   .page
-    img(src="images/camera.png", alt="").camera
     header.page__header
-      .page__header-inner
-        +timer
-        .logo
-          img(src="images/contentica.svg", alt="logo").logo__img
+      .page__header-inner.header
+        .header__line
+          .header__line
+            +focus
+            .table
+              .table__item
+                .table__item-name fps
+                .table__item-value 24
+              .table__item
+                .table__item-name shutter
+                .table__item-value 174.5º
+              .table__item
+                .table__item-name iris
+                .table__item-value t2.2
+          .table
+            .table__item
+              .table__item-name iso
+              .table__item-value 400
+            .table__item
+              .table__item-name wb
+              .table__item-value 5600k
+            .table__item
+              .table__item-name tint
+              .table__item-value 10
+        .header__line
+          .logo
+            img(src="images/contentica.svg", alt="logo").logo__img
+          +timer
+            
         +focus
         .table
           .table__item

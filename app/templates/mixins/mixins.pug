@@ -25,13 +25,13 @@ mixin preloader(closed = false)
 
 mixin timer
   .timer
-    span.timer__item.timer__item--hr 00
-    | : 
-    span.timer__item.timer__item--min 00
-    | : 
-    span.timer__item.timer__item--sec 00
-    | : 
-    span.timer__item.timer__item--msec 00
+    .timer__item.timer__item--hr 00
+    .timer__separator :
+    .timer__item.timer__item--min 00
+    .timer__separator :
+    .timer__item.timer__item--sec 00
+    .timer__separator :
+    .timer__item.timer__item--msec 00
 
 //- focus
 

@@ -1,6 +1,7 @@
 // timer
 
 .timer {
+  display: flex;
   font-size: 35px;
   font-weight: 300;
   white-space: nowrap;
@@ -9,5 +10,12 @@
 // timer item
 
 .timer__item {
-  
+  min-width: 50px;
+  text-align: right;
+}
+
+// timer separator
+
+.timer__separator {
+  margin-right: 10px;
 }
