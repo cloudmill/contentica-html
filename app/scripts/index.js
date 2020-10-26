@@ -24,7 +24,83 @@ window.onload = function (event) {
   battery();
 
   decorFade();
+
+  pageTitleFade();
 };
+
+function pageTitleFade() {
+  let fadeStart = $(".page__main")[0].offsetTop + $(window).height() / 2;
+  let fadeDist = $(window).height() / 4;
+
+  let beforeFade = true;
+  let afterFade = false;
+
+  let windowBottomY = pageYOffset + $(window).height();
+
+  if ($(window).width() > 1200) {
+    if (windowBottomY > fadeStart + fadeDist) {
+      afterFade = true;
+      beforeFade = false;
+    } else if (windowBottomY < fadeStart) {
+      beforeFade = true;
+      afterFade = false;
+    } else {
+      const fadeProgress = (windowBottomY - fadeStart) / fadeDist;
+      
+      $(".page-title").css("opacity", 1 - fadeProgress);
+    }
+  }
+
+  $(window).resize(() => {
+    if ($(window).width() > 1200) {
+      if (windowBottomY > fadeStart + fadeDist) {
+        afterFade = true;
+        beforeFade = false;
+      } else if (windowBottomY < fadeStart) {
+        beforeFade = true;
+        afterFade = false;
+      } else {
+        const fadeProgress = (windowBottomY - fadeStart) / fadeDist;
+        
+        $(".page-title").css("opacity", 1 - fadeProgress);
+      }
+    } else {
+      $(".page-title").css("opacity", 1);
+    }
+  });
+
+  $(window).scroll(() => {
+    if ($(window).width() > 1200) {
+      windowBottomY = pageYOffset + $(window).height();
+
+      if (windowBottomY > fadeStart + fadeDist) {
+        if (!afterFade) {
+          $(".page-title").css("opacity", "0");
+          
+          afterFade = true;
+        }
+      } else if (windowBottomY < fadeStart) {
+        if (!beforeFade) {
+          $(".page-title").css("opacity", "1");
+    
+          beforeFade = true;
+        }
+      } else {
+        const fadeProgress = (windowBottomY - fadeStart) / fadeDist;
+        
+        $(".page-title").css("opacity", 1 - fadeProgress);
+    
+        if (beforeFade) {
+          beforeFade = false;
+        }
+    
+        if (afterFade) {
+          afterFade = false;
+        }
+      }
+    }
+  });
+}
 
 function decorFade() {
   const DECOR = [
@@ -85,7 +161,7 @@ function battery() {
 
 function camera() {
   const SCALE_DISTANCE = 270;
-  
+
   const headerHeight = $(".page__header").height();
   const scaleDistanceTail = 270;
   const scaleDistance = headerHeight + scaleDistanceTail;
