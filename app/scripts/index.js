@@ -1,5 +1,4 @@
 import $, { timers } from "jquery";
-import { Camera } from "three";
 import App from "./main.js";
 
 $(document).ready(function() {
@@ -21,7 +20,15 @@ window.onload = function (event) {
   dotLinks();
 
   camera();
+
+  battery();
 };
+
+function battery() {
+  $(window).scroll(() => {
+    $(".battery__charge").css("transform", `scaleX(${pageYOffset / ($(document).height() - $(window).height())})`)
+  });
+}
 
 function camera() {
   const headerHeight = $(".page__header").height();

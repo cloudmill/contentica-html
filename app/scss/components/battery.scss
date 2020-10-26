@@ -8,8 +8,6 @@ $tail-height: 16px;
 
 $body-tail-gap: 3px;
 
-$charge-transition: 0.5s;
-
 // battery
 // индикатор заряда управляется через battery__charge transform: scaleX(0-1)
 // не через width (чтобы снизить нагрузку на cpu, возникающую при перерисовке/пересчете/перекомпоновке документа)
@@ -44,7 +42,6 @@ $charge-transition: 0.5s;
   @include pos-cover();
   transform-origin: left;
   background: white;
-  transition: $charge-transition;
 }
 
 // battery tail
