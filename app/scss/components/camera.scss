@@ -4,6 +4,7 @@
   right: calc(50% - 760px);
   transform-origin: 77.5% 92%;
   will-change: transform;
+  pointer-events: none;
 
   @media (max-width: 1200px) {
     right: calc(25% - 300px);
