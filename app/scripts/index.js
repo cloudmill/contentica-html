@@ -1,4 +1,4 @@
-import $, { timers } from "jquery";
+import $ from "jquery";
 import App from "./main.js";
 
 $(document).ready(function() {
@@ -34,88 +34,100 @@ window.onload = function (event) {
 
 function sectionTitle() {
   let desktop;
+  
+  const title = $(".main__section-title");
+  let visibly;
+  
+  init();
 
-  $(".main__section-title").each((index, element) => {
-    const title = $(element);
+  function init() {
+    if ($(window).width() > 1200) {
+      desktop = true;
+      desktopInit();
+      update();
+    } else {
+      desktop = false;
+    }
+  }
 
-    let visibly;
+  function desktopInit() {
+    title.css("opacity", 0);
+    title.css("position", "fixed");
+    title.css("top", "50%");
+    title.css("left", "0");
+    title.css("transform", "translateY(-50%)");
+    
+    visibly = [];
+    for (let i = 0; i < title.length; i++) {
+      visibly.push(false);
+    }
+  }
 
-    init();
+  function update() {
+    const
+      DIST = $(window).height() / 3.5,
+      section = $(".main__section"),
+      titleY = [];
 
-    $(window).resize(() => {
-      if (desktop) {
-        if ($(window).width() <= 1200) {
-          desktop = false;
-          mobileInit();
+    section.each(function () {
+      titleY.push($(this).offset().top - ($(window).height() - $(this).height()) / 2);
+    });
+
+    title.each((index, element) => {
+      if (visibly[index]) {
+        if (
+          pageYOffset < titleY[index] - DIST
+          || pageYOffset > titleY[index] + DIST
+        ) {
+          visibly[index] = false;
+          $(element).css("opacity", 0);
         }
       } else {
-        if ($(window).width() > 1200) {
-          desktop = true;
-          desktopInit();
-          update();
+        if (
+          pageYOffset >= titleY[index] - DIST
+          && pageYOffset <= titleY[index] + DIST
+        ) {
+          visibly[index] = true;
         }
       }
-    });
 
-    $(window).scroll(() => {
-      if (desktop) {
-        update();
+      if (visibly[index]) {
+        const
+          opacityProgress = 1 - Math.abs(titleY[index] - pageYOffset) / DIST,
+          transformProgress = titleY[index] + DIST - pageYOffset;
+
+        $(element).css("opacity", opacityProgress);
+        $(element).css("transform", `translateY(calc(-75% + ${transformProgress / 10}px))`);
       }
     });
+  }
 
-    function init() {
+  $(window).resize(() => {
+    if (desktop) {
+      if ($(window).width() <= 1200) {
+        desktop = false;
+        mobileInit();
+      }
+    } else {
       if ($(window).width() > 1200) {
         desktop = true;
         desktopInit();
         update();
-      } else {
-        desktop = false;
       }
     }
+  });
 
-    function desktopInit() {
-      title.css("opacity", 0);
-      title.css("position", "fixed");
-      title.css("top", "50%");
-      title.css("left", "0");
-      title.css("transform", "translateY(-50%)");
-      visibly = false;
-    }
+  function mobileInit() {
+    title.css("position", "");
+    title.css("top", "");
+    title.css("left", "");
+    title.css("transform", "");
+    title.css("opacity", 1);
+  }
 
-    function mobileInit() {
-      title.css("position", "");
-      title.css("opacity", 1);
-    }
-
-    function update() {
-      const
-        DIST = $(window).height() / 4,
-        section = title.parent(),
-        titleY = section.offset().top,
-        pageY = pageYOffset;
-
-      if (visibly) {
-        if (
-          pageY < titleY - DIST
-          || pageY > titleY + DIST
-        ) {
-          visibly = false;
-          title.css("opacity", 0);
-        }
-      } else {
-        if (
-          pageY >= titleY - DIST
-          && pageY <= titleY + DIST
-        ) {
-          visibly = true;
-        }
-      }
-
-      if (visibly) {
-        const dist = Math.abs(titleY - pageY);
-
-        title.css("opacity", 1 - dist / DIST);
-      }
+  $(window).scroll(() => {
+    if (desktop) {
+      update();
     }
   });
 }

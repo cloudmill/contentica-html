@@ -15,15 +15,19 @@
   min-height: 75vh;
   display: flex;
   align-items: center;
-  // border-top: 1px solid white; // test
-  // border-bottom: 1px solid white; // test
   counter-increment: section-number;
+  
+  &:not(:first-child) {
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+  }
 
   @media (max-width: 1200px) {
-    padding: 0 40px;
+    padding: 7.5vh 40px;
+    // padding-bottom: 15vh;
     min-height: 100vh;
     flex-direction: column;
     justify-content: center;
+    // justify-content: flex-start;
   }
 }
 
@@ -37,7 +41,7 @@
   line-height: 100%;
   text-align: center;
   text-transform: uppercase;
-  will-change: scroll-position;
+  will-change: auto;
 
   &::before {
     content: "0"counter(section-number);
