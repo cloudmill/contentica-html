@@ -1,7 +1,7 @@
 // MAIN
 
 .main {
-  padding-top: 360px;
+  padding-top: 250px;
   counter-reset: section-number;
 
   @media (max-width: 1200px) {
@@ -15,8 +15,8 @@
   min-height: 75vh;
   display: flex;
   align-items: center;
-  border-top: 1px solid white; // test
-  border-bottom: 1px solid white; // test
+  // border-top: 1px solid white; // test
+  // border-bottom: 1px solid white; // test
   counter-increment: section-number;
 
   @media (max-width: 1200px) {
@@ -46,6 +46,7 @@
 
   @media (max-width: 1200px) {
     padding-left: 0;
+    margin-top: 50px;
   }
 }
 

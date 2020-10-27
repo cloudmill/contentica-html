@@ -110,6 +110,8 @@ function pageTitleFade() {
 
   $(window).resize(() => {
     if ($(window).width() > 1200) {
+      windowBottomY = pageYOffset + $(window).height();
+
       if (windowBottomY > fadeStart + fadeDist) {
         $(".page-title").css("opacity", 0);
         $(".page-title").css("pointer-events", "none");
