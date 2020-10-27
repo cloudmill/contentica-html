@@ -6,8 +6,8 @@ block variables
 
 block content
   +preloader
-  img(src="images/camera.png", alt="").camera
   .page
+    img(src="images/camera.png", alt="").camera
     header.page__header
       .page__header-inner.header
         .header__line
@@ -120,11 +120,7 @@ block content
             .dot-link__dot-track
               .dot-link__dot
         .footer__line.footer__line--align-end.footer__line--padding-right.footer__line--margin-top
-          .footer__group
-            .footer__item © 2020 Contentica
-            a(href="").footer__item.footer__item--margin-top.simple-link.simple-link--closed Сайт сделан в 
-              span.footer__link.footer__link--cloudmill CloudMill
-          .footer__group
+          .footer__group.footer__group--order--1
             .footer__item.footer__item--font-size--30 Москва,
               br
               | Лужнецкая набережная,
@@ -132,3 +128,8 @@ block content
               | 2/4 дом 3, офис 107
             .footer__item.footer__item--margin-top
               a(href="").footer__link.footer__link--on-map.simple-link.simple-link--closed На карте
+          .footer__group.footer__group--margin-top
+            .footer__item © 2020 Contentica
+            a(href="").footer__item.footer__item--margin-top.simple-link.simple-link--closed Сайт сделан в 
+              span.footer__link.footer__link--cloudmill CloudMill
+          
