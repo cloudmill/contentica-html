@@ -55,6 +55,11 @@
 .main__section-content {
   position: absolute;
   right: 5%;
+  max-width: 740px;
+  max-height: 430px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   @media (max-width: 1200px) {
     position: static;
