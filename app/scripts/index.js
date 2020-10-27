@@ -60,8 +60,6 @@ function simpleLink() {
       if (simpleLink.hasClass("simple-link--openning")) {
         simpleLink.removeClass("simple-link--openning");
 
-        console.log(hover);
-
         if (hover) {
           simpleLink.addClass("simple-link--opened");
         } else {
@@ -69,8 +67,6 @@ function simpleLink() {
         }
       } else {
         simpleLink.removeClass("simple-link--closing");
-
-        console.log(hover);
 
         if (hover) {
           simpleLink.addClass("simple-link--openning");
