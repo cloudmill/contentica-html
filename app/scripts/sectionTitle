@@ -1,0 +1,46 @@
+update
+  visibly:
+    visibly?
+      стал нет?
+        visibly = false
+        opacity = 0
+    нет
+      стал visibly?
+        visibly = true
+  opacity:
+    visibly?
+      opacity = ...
+
+scroll
+  desktop?
+    update
+
+resize
+  desktop?
+    стал mobile?
+      desktop = false
+      mobileInit
+  нет
+    стал desktop?
+      desktop = true
+      desktopInit
+      update
+
+init
+  desktop?
+    desktop = true
+    desktopInit
+    update
+  нет
+    desktop = false
+    // здесь mobileInit не нужен т.к. страница по-умолчанию в режиме mobile
+
+desktopInit
+  opacity = 0
+  position = absolute
+  visibly = false
+
+mobileInit
+  position = ""
+  opacity = 1
+

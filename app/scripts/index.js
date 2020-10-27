@@ -28,7 +28,97 @@ window.onload = function (event) {
   pageTitleFade();
 
   simpleLink();
+
+  sectionTitle();
 };
+
+function sectionTitle() {
+  let desktop;
+
+  $(".main__section-title").each((index, element) => {
+    const title = $(element);
+
+    let visibly;
+
+    init();
+
+    $(window).resize(() => {
+      if (desktop) {
+        if ($(window).width() <= 1200) {
+          desktop = false;
+          mobileInit();
+        }
+      } else {
+        if ($(window).width() > 1200) {
+          desktop = true;
+          desktopInit();
+          update();
+        }
+      }
+    });
+
+    $(window).scroll(() => {
+      if (desktop) {
+        update();
+      }
+    });
+
+    function init() {
+      if ($(window).width() > 1200) {
+        desktop = true;
+        desktopInit();
+        update();
+      } else {
+        desktop = false;
+      }
+    }
+
+    function desktopInit() {
+      title.css("opacity", 0);
+      title.css("position", "fixed");
+      title.css("top", "50%");
+      title.css("left", "0");
+      title.css("transform", "translateY(-50%)");
+      visibly = false;
+    }
+
+    function mobileInit() {
+      title.css("position", "");
+      title.css("opacity", 1);
+    }
+
+    function update() {
+      const
+        DIST = $(window).height() / 4,
+        section = title.parent(),
+        titleY = section.offset().top,
+        pageY = pageYOffset;
+
+      if (visibly) {
+        if (
+          pageY < titleY - DIST
+          || pageY > titleY + DIST
+        ) {
+          visibly = false;
+          title.css("opacity", 0);
+        }
+      } else {
+        if (
+          pageY >= titleY - DIST
+          && pageY <= titleY + DIST
+        ) {
+          visibly = true;
+        }
+      }
+
+      if (visibly) {
+        const dist = Math.abs(titleY - pageY);
+
+        title.css("opacity", 1 - dist / DIST);
+      }
+    }
+  });
+}
 
 function simpleLink() {
   $(".simple-link").each(function () {

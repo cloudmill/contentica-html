@@ -37,6 +37,7 @@
   line-height: 100%;
   text-align: center;
   text-transform: uppercase;
+  will-change: scroll-position;
 
   &::before {
     content: "0"counter(section-number);
