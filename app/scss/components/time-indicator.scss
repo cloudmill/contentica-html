@@ -15,6 +15,10 @@ $title-gap: 3px;
   font-size: 20px;
   line-height: 90%;
   text-transform: uppercase;
+
+  @media (max-width: 1200px) {
+    font-size: 15px;
+  }
 }
 
 @mixin indicator-color($color) {
@@ -35,6 +39,10 @@ $title-gap: 3px;
   justify-content: center;
   align-items: center;
   @include indicator-font();
+
+  @media (max-width: 1200px) {
+    padding-top: 2px;
+  }
 }
 
 // time-indicator
@@ -48,7 +56,7 @@ $title-gap: 3px;
 }
 
 .time-indicator--margin-left {
-  margin-left: 20px;
+  margin-left: 25px;
 }
 
 // time-indicator title
@@ -56,6 +64,12 @@ $title-gap: 3px;
 .time-indicator__title {
   height: $title-height;
   display: flex;
+
+  @media (max-width: 1200px) {
+    $title-height: 22px;
+
+    height: $title-height;
+  }
 }
 
 // time-indicator mode
@@ -64,6 +78,10 @@ $title-gap: 3px;
   @include title-item();
   min-width: 30px;
   background: $color-default;
+
+  @media (max-width: 1200px) {
+    min-width: auto;
+  }
 }
 
 // time-indicator type
@@ -73,6 +91,10 @@ $title-gap: 3px;
   margin-left: $title-gap;
   min-width: 76px;
   background: $color-default;
+
+  @media (max-width: 1200px) {
+    min-width: auto;
+  }
 }
 
 // time-indicator value

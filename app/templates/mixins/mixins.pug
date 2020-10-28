@@ -68,7 +68,7 @@ mixin rec-indicator
 //- time-indicator
 
 mixin time-indicator(theme, classList)
-  div(class = classList + (theme ? " time-indicator--theme--" + theme : "")).time-indicator
+  div(class = (classList ? classList : "") + (theme ? (classList ? " " : "") + "time-indicator--theme--" + theme : "")).time-indicator
     .time-indicator__title
       .time-indicator__mode 1
       .time-indicator__type Aoo1

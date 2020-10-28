@@ -28,6 +28,10 @@
     flex-direction: column;
     justify-content: center;
     // justify-content: flex-start;
+    
+    &:last-child {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    }
   }
 }
 

@@ -10,6 +10,13 @@ $animation-options: 2s infinite steps(1);
   width: $size;
   height: $size;
   background: black;
+
+  @media (max-width: 1200px) {
+    $size: 50px;
+
+    width: $size;
+    height: $size;
+  }
 }
 
 // rec-indicator dot

@@ -29,8 +29,12 @@
 
 .header__line--margin-top {
   @media (max-width: 1200px) {
-    margin-top: 20px;
+    margin-top: 30px;
   }
+}
+
+.header__line--align-end {
+  align-items: flex-end;
 }
 
 .header__line--left-top {

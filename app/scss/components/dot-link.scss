@@ -31,6 +31,10 @@ $link-over-move: $link-full-move * (1 - 1 / $cubic-bezier-max-progression);
   align-items: center;
 }
 
+.dot-link--margin-top {
+  margin-top: 15px;
+}
+
 // dot-link link-track
 
 // ссылка наследует размер шрифта у link-track

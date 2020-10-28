@@ -7,7 +7,7 @@ $height: 50px;
 $item-size: 8px;
 
 // на mobile все линейные размеры декорации будут уменьшены пропорционально уменьшению width
-$mobile-width: 50px;
+$mobile-width: 40px;
 
 // mixins
 
@@ -18,6 +18,13 @@ $mobile-width: 50px;
   height: $item-size;
   border-#{$hor}: 1px solid white;
   border-#{$vert}: 1px solid white;
+
+  @media (max-width: 1200px) {
+    $item-size: 4px;
+
+    #{$hor}: $item-size;
+    #{$vert}: $item-size;
+  }
 }
 
 @mixin focus-items($item-size) {

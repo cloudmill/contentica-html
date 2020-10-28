@@ -12,6 +12,10 @@ $item-gap: 5px;
 .color-indicator {
   min-width: 190px; // вычислено опытным путем
   max-width: 285px;
+
+  @media (max-width: 1200px) {
+    max-width: 210px;
+  }
 }
 
 .color-indicator--flex-grow {
@@ -31,6 +35,12 @@ $item-gap: 5px;
   &:not(:first-child) {
     margin-top: $list-gap;
   }
+
+  @media (max-width: 1200px) {
+    $item-height: 13px;
+
+    height: $item-height;
+  }
 }
 
 // color-indicator item-number
@@ -45,12 +55,22 @@ $item-gap: 5px;
   font-weight: 300;
   font-size: 20px;
   line-height: 90%;
+
+  @media (max-width: 1200px) {
+    font-size: 15px;
+  }
 }
 
 .color-indicator__item-scale {
   flex-grow: 1;
   height: 100%;
   margin-left: $item-gap;
+
+  @media (max-width: 1200px) {
+    $item-gap: 0;
+
+    margin-left: $item-gap;
+  }
 }
 
 // color-indicator scale
@@ -68,4 +88,8 @@ $item-gap: 5px;
   font-weight: 300;
   font-size: 9px;
   line-height: 90%;
+
+  @media (max-width: 1200px) {
+    font-size: 6px;
+  }
 }

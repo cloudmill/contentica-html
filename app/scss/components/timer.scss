@@ -5,6 +5,10 @@
   font-size: 35px;
   font-weight: 300;
   white-space: nowrap;
+
+  @media (max-width: 1200px) {
+    font-size: 33px;
+  }
 }
 
 .timer--right-top {

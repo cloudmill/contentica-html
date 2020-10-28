@@ -9,7 +9,7 @@
   justify-content: center;
 
   @media (max-width: 1200px) {
-    padding-top: 0;
+    padding-right: 10%;
   }
 }
 
@@ -26,14 +26,6 @@
 
 .footer__line--align-end {
   align-items: flex-end;
-}
-
-.footer__line--padding-right {
-  padding-right: 10%;
-
-  @media (max-width: 960px) {
-    padding-right: 0;
-  }
 }
 
 .footer__line--margin-top {

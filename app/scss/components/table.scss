@@ -13,6 +13,12 @@ $row-gap: 18px;
   font-size: $font-size;
   line-height: $line-height;
   text-transform: uppercase;
+
+  @media (max-width: 1200px) {
+    $font-size: 11px;
+
+    font-size: $font-size;
+  }
 }
 
 // table
@@ -42,6 +48,12 @@ $row-gap: 18px;
 .table__item {
   &:not(:first-child) {
     margin-left: $col-gap;
+  
+    @media (max-width: 1200px) {
+      $col-gap: 30px;
+
+      margin-left: $col-gap;
+    }
   }
 }
 
@@ -56,4 +68,10 @@ $row-gap: 18px;
 .table__item-value {
   margin-top: $row-gap;
   @include item-font();
+
+  @media (max-width: 1200px) {
+    $row-gap: 13px;
+
+    margin-top: $row-gap;
+  }
 }
