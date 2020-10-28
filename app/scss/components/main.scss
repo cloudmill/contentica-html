@@ -16,10 +16,6 @@
   display: flex;
   align-items: center;
   counter-increment: section-number;
-  
-  &:not(:first-child) {
-    border-top: 1px solid rgba(255, 255, 255, 0.25);
-  }
 
   @media (max-width: 1200px) {
     padding: 7.5vh 40px;
@@ -28,10 +24,6 @@
     flex-direction: column;
     justify-content: center;
     // justify-content: flex-start;
-    
-    &:last-child {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-    }
   }
 }
 

@@ -2,21 +2,23 @@
   position: fixed;
   top: 120px;
   right: calc(50% - 760px);
-  transform-origin: 77.5% 92%;
+  transform-origin: 77.5% 80%;
   will-change: transform;
   pointer-events: none;
-  opacity: 0.35;
+  opacity: 0.34;
+  width: 1050px;
 
   @media (max-width: 1200px) {
     right: calc(25% - 300px);
     width: 890px;
-    transform-origin: 82.5% 95%;
+    transform-origin: 81.5% 85.5%;
   }
 
   @media (max-width: 960px) {
     right: calc(25% - 280px);
     width: 820px;
     top: 155px;
+    transform-origin: 85% 93.5%;
   }
 
   @media (max-width: 640px) {
