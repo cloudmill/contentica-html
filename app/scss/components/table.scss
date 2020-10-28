@@ -70,6 +70,12 @@ $row-gap: 18px;
 
       margin-left: $col-gap;
     }
+
+    @media (max-width: 370px) {
+      $col-gap: 10px;
+
+      margin-left: $col-gap;
+    }
   }
 }
 
