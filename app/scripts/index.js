@@ -30,7 +30,101 @@ window.onload = function (event) {
   simpleLink();
 
   sectionTitle();
+
+  scrollDown();
 };
+
+function scrollDown() {
+  // animation right now ?
+
+  let animation = false;
+
+  // start points
+  
+  let points;
+  
+  updatePoints();
+  
+  // start cur point
+  
+  let curPoint;
+  
+  updateCurPoint();
+
+  // update points
+  
+  function updatePoints() {
+    points = [];
+    
+    $(".main__section").each(function () {
+      points.push($(this).offset().top - 100);
+    });
+
+    points.push($(".footer").offset().top);
+  }
+  
+  // update cur point
+  
+  function updateCurPoint() {
+    curPoint = -1;
+    
+    for (; curPoint + 1 < points.length && pageYOffset >= points[curPoint + 1]; curPoint++);
+  }
+
+  // resize window
+  
+  $(window).resize(() => {
+    updatePoints();
+  });
+
+  // click scroll down
+  
+  $(".scroll-down__button").click(() => {
+    if (!animation) {
+      animation = true;
+      
+      updateCurPoint();
+      
+      scrollTo(500);
+    }
+  });
+
+  // animation scroll to
+  
+  function scrollTo(duration) {
+    if (++curPoint < points.length) {
+      const startScroll = $(window).scrollTop();
+      const dist = points[curPoint] - startScroll;
+      
+      const start = performance.now();
+
+      let time;
+      let progress;
+      let scroll;
+
+      requestAnimationFrame(function animate(now) {
+        time = now - start;
+
+        // timing function
+        progress = Math.log(Math.pow((time / duration) * 10 + 1, 0.5));
+
+        progress = progress < 0 ? 0 : progress > 1 ? 1 : progress;
+        
+        scroll = startScroll + dist * progress;
+        
+        $(window).scrollTop(scroll);
+        
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          animation = false;
+        }
+      });
+    } else {
+      animation = false;
+    }
+  }
+}
 
 function sectionTitle() {
   let desktop;
