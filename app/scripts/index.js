@@ -426,6 +426,7 @@ function battery() {
 
 function camera() {
   const SCALE_DISTANCE = 270;
+  const START_OPACITY = getComputedStyle($(".camera")[0]).opacity;
 
   const headerHeight = $(".page__header").height();
   const scaleDistanceTail = 270;
@@ -435,11 +436,11 @@ function camera() {
     const progress = pageYOffset / SCALE_DISTANCE;
 
     $(".camera").css("transform", `scale(${1 + progress}, ${1 + progress})`);
-    $(".camera").css("opacity", 1 - 0.6 * progress);
+    $(".camera").css("opacity", (1 - 0.6 * progress) * START_OPACITY);
   } else {
     const progress = (pageYOffset - SCALE_DISTANCE) / ($(document).height() - SCALE_DISTANCE - $(".page__header").height());
     $(".camera").css("transform", `scale(${2 - 0.35 * progress}, ${2 - 0.35 * progress}) translate(${-80 * progress}px, ${-80 * progress}px)`);
-    $(".camera").css("opacity", 0.4 * (1 - progress));
+    $(".camera").css("opacity", (0.4 * (1 - progress)) * START_OPACITY);
   }
 
   $(window).scroll((event) => {
@@ -449,11 +450,11 @@ function camera() {
       const progress = pageYOffset / SCALE_DISTANCE;
 
       $(".camera").css("transform", `scale(${1 + progress}, ${1 + progress})`);
-      $(".camera").css("opacity", 1 - 0.6 * progress);
+      $(".camera").css("opacity", (1 - 0.6 * progress) * START_OPACITY);
     } else {
       const progress = (pageYOffset - SCALE_DISTANCE) / ($(document).height() - SCALE_DISTANCE - $(".page__header").height());
       $(".camera").css("transform", `scale(${2 - 0.35 * progress}, ${2 - 0.35 * progress}) translate(${-80 * progress}px, ${-80 * progress}px)`);
-      $(".camera").css("opacity", 0.4 * (1 - progress));
+      $(".camera").css("opacity", (0.4 * (1 - progress)) * START_OPACITY);
     }
   });
 }

@@ -106,8 +106,17 @@ $link-over-move: $link-full-move * (1 - 1 / $cubic-bezier-max-progression);
   display: flex;
   justify-content: flex-end;
 
-  @media (max-width: $tablet-m) {
-    margin-left: 15px;
+  @media (max-width: 1200px) {
+    margin-right: -5%;
+    margin-left: 20px;
+  }
+
+  @media (max-width: 1060px) {
+    margin-right: -7%;
+  }
+
+  @media (max-width: 960px) {
+    margin-right: 0;
   }
 
   @media (max-width: 550px) {

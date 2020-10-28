@@ -11,6 +11,10 @@
   @media (max-width: 1200px) {
     padding-right: 10%;
   }
+
+  @media (max-width: 960px) {
+    padding-top: 0;
+  }
 }
 
 // footer line
@@ -30,6 +34,10 @@
 
 .footer__line--margin-top {
   margin-top: 100px;
+
+  @media (max-width: 960px) {
+    margin-top: 21vh;
+  }
 }
 
 // GROUP
@@ -44,6 +52,10 @@
 
 .footer__group--margin-top {
   margin-top: 100px;
+
+  @media (max-width: 960px) {
+    margin-top: 9vh;
+  }
 }
 
 // footer item
@@ -61,6 +73,10 @@
 
 .footer__item--font-size--30 {
   font-size: 30px;
+
+  @media (max-width: 960px) {
+    font-size: 25px;
+  }
 }
 
 // footer link

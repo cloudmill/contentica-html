@@ -57,6 +57,16 @@
     padding-left: 0;
     margin-top: 50px;
   }
+
+  @media (max-width: 960px) {
+    margin-top: 20px;
+    font-size: 60px;
+
+    &::before {
+      font-size: 25px;
+      line-height: 80px;
+    }
+  }
 }
 
 // SECTION-CONTENT - обертка для video
