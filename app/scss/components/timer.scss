@@ -9,6 +9,10 @@
   @media (max-width: 1200px) {
     font-size: 33px;
   }
+
+  @media (max-width: 1200px) {
+    font-size: 20px;
+  }
 }
 
 .timer--right-top {
@@ -28,10 +32,18 @@
 .timer__item {
   min-width: 50px;
   text-align: right;
+
+  @media (max-width: 640px) {
+    min-width: 30px;
+  }
 }
 
 // timer separator
 
 .timer__separator {
   margin-right: 10px;
+
+  @media (max-width: 640px) {
+    margin-right: 5px;
+  }
 }

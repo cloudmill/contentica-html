@@ -3,6 +3,10 @@
 .logo {
   width: 200px;
   height: 40px;
+
+  @media (max-width: 640px) {
+    width: 165px;
+  }
 }
 
 .logo--in-header {
