@@ -25,6 +25,13 @@ $mobile-width: 40px;
     #{$hor}: $item-size;
     #{$vert}: $item-size;
   }
+
+  @media (max-width: 480px) {
+    $item-size: 3px;
+
+    #{$hor}: $item-size;
+    #{$vert}: $item-size;
+  }
 }
 
 @mixin focus-items($item-size) {
@@ -54,6 +61,13 @@ $mobile-width: 40px;
   border: 1px solid white;
 
   @media (max-width: $to-mobile) {
+    width: $mobile-width;
+    height: $mobile-width * ($height / $width);
+  }
+
+  @media (max-width: 480px) {
+    $mobile-width: 35px;
+
     width: $mobile-width;
     height: $mobile-width * ($height / $width);
   }

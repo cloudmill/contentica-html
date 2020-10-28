@@ -31,6 +31,10 @@
   @media (max-width: 1200px) {
     margin-top: 30px;
   }
+
+  @media (max-width: 480px) {
+    margin-top: 20px;
+  }
 }
 
 .header__line--align-end {
@@ -60,13 +64,17 @@
   }
 
   @media (max-width: 960px) {
-    padding-bottom: 21.5%;
+    padding-bottom: 0;
+    align-items: flex-start;
+    padding-top: 13vh;
   }
 
   @media (max-width: 640px) {
-    padding-bottom: 0;
-    align-items: flex-start;
-    padding-top: 13%;
+    padding-top: 12vh;
+  }
+
+  @media (max-width: 480px) {
+    padding-top: 11vh;
   }
 }
 

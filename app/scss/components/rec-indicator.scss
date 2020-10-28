@@ -24,6 +24,13 @@ $animation-options: 2s infinite steps(1);
     width: $size;
     height: $size;
   }
+
+  @media (max-width: 480px) {
+    $size: 29px;
+
+    width: $size;
+    height: $size;
+  }
 }
 
 // rec-indicator dot

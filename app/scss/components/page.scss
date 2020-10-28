@@ -26,6 +26,11 @@ $color-red: #FF4848;
   padding: 20px;
   height: 100vh;
   min-height: 100vh;
+
+  @media (max-width: 480px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 // page main

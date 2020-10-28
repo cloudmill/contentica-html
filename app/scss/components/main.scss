@@ -27,7 +27,14 @@
   }
 
   @media (max-width: 640px) {
+    padding-left: 20px;
+    padding-right: 20px;
     min-height: 75vh;
+  }
+
+  @media (max-width: 480px) {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
@@ -71,6 +78,16 @@
     &::before {
       font-size: 18px;
       line-height: 65px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 5px;
+    font-size: 34px;
+
+    &::before {
+      font-size: 13px;
+      line-height: 50px;
     }
   }
 }
