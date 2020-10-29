@@ -32,7 +32,53 @@ window.onload = function (event) {
   sectionTitle();
 
   scrollDown();
+
+  scrollUp();
 };
+
+function scrollUp() {
+  let animation = false;
+
+  const normalize = 3500;
+  let duration;
+
+  $(".logo").click(() => {
+    duration = 1000 * pageYOffset / normalize;
+
+    if (!animation && pageYOffset >= 1) {
+      animation = true;
+
+      const startScroll = $(window).scrollTop();
+      const dist = startScroll;
+      
+      const start = performance.now();
+
+      let time;
+      let progress;
+      let scroll;
+
+      requestAnimationFrame(function animate(now) {
+        time = now - start;
+
+        // timing function
+        progress = Math.log(Math.pow((time / duration) * 10 + 1, 0.5));
+
+        progress = progress < 0 ? 0 : progress > 1 ? 1 : progress;
+        
+        scroll = startScroll - dist * progress;
+        
+        $(window).scrollTop(scroll);
+        
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          $(window).scrollTop(0);
+          animation = false;
+        }
+      });
+    }
+  });
+}
 
 function scrollDown() {
   // animation right now ?
