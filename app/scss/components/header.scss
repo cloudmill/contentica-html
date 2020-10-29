@@ -88,9 +88,11 @@
   @media (min-width: 1201px) {
     display: block;
     position: fixed;
-    width: 22.2%;
+    // width: 22.2%;
+    width: 24%;
     top: 50%;
-    right: 3.75%;
+    // right: 3.75%;
+    right: 3%;
   }
 }
 
@@ -110,6 +112,85 @@
 
 .header__feature--active {
   opacity: 1;
+}
+
+// FEATURE WRAPPER
+
+.header__feature-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// FEATURE GLITCH
+
+.header__feature-glitch {
+  color: white;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 120%;
+  position: relative;
+  padding: 30px;
+
+  &::before,
+  &::after {
+    padding: 30px;
+    color: white;
+    content: attr(data-text);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: transparent;
+    white-space: pre-line;
+    top: 0;
+  }
+
+  $duration: 5s;
+
+  &::before {
+    left: 3px;
+    text-shadow: -2px 0 red;
+    animation-name: glitch-animation-1;
+    animation-duration: $duration;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse-alternate;
+  }
+
+  &::after {
+    left: -3px;
+    text-shadow: -2px 0 blue;
+    animation-name: glitch-animation-2;
+    animation-duration: $duration;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse-alternate;
+  }
+}
+
+$height: 400;
+
+@keyframes glitch-animation-1 {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random($height)+px, 350px, random($height)+px, 30px);
+    }
+  }
+}
+    
+@keyframes glitch-animation-2 {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random($height)+px, 350px, random($height)+px, 30px);
+    }
+  }
 }
 
 // header group
