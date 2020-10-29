@@ -385,28 +385,22 @@ function pageTitleFade() {
 
   if ($(window).width() > 1200) {
     if (windowBottomY > fadeStart + fadeDist) {
-      $(".page-title").css("opacity", 0);
-      $(".page-title").css("pointer-events", "none");
-      $(".header__features").css("opacity", 0);
-      $(".header__features").css("pointer-events", "none");
+      $(".header__title").css("opacity", 0);
+      $(".header__title").css("pointer-events", "none");
 
       afterFade = true;
       beforeFade = false;
     } else if (windowBottomY < fadeStart) {
-      $(".page-title").css("opacity", 1);
-      $(".page-title").css("pointer-events", "all");
-      $(".header__features").css("opacity", 1);
-      $(".header__features").css("pointer-events", "all");
+      $(".header__title").css("opacity", 1);
+      $(".header__title").css("pointer-events", "all");
 
       beforeFade = true;
       afterFade = false;
     } else {
       const fadeProgress = (windowBottomY - fadeStart) / fadeDist;
       
-      $(".page-title").css("opacity", 1 - fadeProgress);
-      $(".page-title").css("pointer-events", "all");
-      $(".header__features").css("opacity", 1 - fadeProgress);
-      $(".header__features").css("pointer-events", "all");
+      $(".header__title").css("opacity", 1 - fadeProgress);
+      $(".header__title").css("pointer-events", "all");
     }
   }
 
@@ -421,24 +415,19 @@ function pageTitleFade() {
         afterFade = true;
         beforeFade = false;
       } else if (windowBottomY < fadeStart) {
-        $(".page-title").css("opacity", 1);
-        $(".page-title").css("pointer-events", "all");
-        $(".header__features").css("opacity", 1);
-        $(".header__features").css("pointer-events", "all");
+        $(".header__title").css("opacity", 1);
+        $(".header__title").css("pointer-events", "all");
 
         beforeFade = true;
         afterFade = false;
       } else {
         const fadeProgress = (windowBottomY - fadeStart) / fadeDist;
         
-        $(".page-title").css("opacity", 1 - fadeProgress);
-        $(".page-title").css("pointer-events", "all");
-        $(".header__features").css("opacity", 1 - fadeProgress);
-        $(".header__features").css("pointer-events", "all");
+        $(".header__title").css("opacity", 1 - fadeProgress);
+        $(".header__title").css("pointer-events", "all");
       }
     } else {
-      $(".page-title").css("opacity", 1);
-      $(".header__features").css("opacity", 1);
+      $(".header__title").css("opacity", 1);
     }
   });
 
@@ -448,29 +437,23 @@ function pageTitleFade() {
 
       if (windowBottomY > fadeStart + fadeDist) {
         if (!afterFade) {
-          $(".page-title").css("opacity", "0");
-          $(".page-title").css("pointer-events", "none");
-          $(".header__features").css("opacity", 0);
-          $(".header__features").css("pointer-events", "none");
+          $(".header__title").css("opacity", 0);
+          $(".header__title").css("pointer-events", "none");
           
           afterFade = true;
         }
       } else if (windowBottomY < fadeStart) {
         if (!beforeFade) {
-          $(".page-title").css("opacity", 1);
-          $(".page-title").css("pointer-events", "all");
-          $(".header__features").css("opacity", 1);
-          $(".header__features").css("pointer-events", "all");
+          $(".header__title").css("opacity", 1);
+          $(".header__title").css("pointer-events", "all");
     
           beforeFade = true;
         }
       } else {
         const fadeProgress = (windowBottomY - fadeStart) / fadeDist;
         
-        $(".page-title").css("opacity", 1 - fadeProgress);
-        $(".page-title").css("pointer-events", "all");
-        $(".header__features").css("opacity", 1 - fadeProgress);
-        $(".header__features").css("pointer-events", "all");
+        $(".header__title").css("opacity", 1 - fadeProgress);
+        $(".header__title").css("pointer-events", "all");
     
         if (beforeFade) {
           beforeFade = false;

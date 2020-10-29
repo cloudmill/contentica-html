@@ -62,6 +62,9 @@
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
+    width: calc(100% - 20px - 20px);
+    justify-content: space-between;
+    align-items: flex-start;
   }
 
   @media (max-width: 960px) {
@@ -86,10 +89,10 @@
 
   @media (min-width: 1201px) {
     display: block;
-    position: fixed;
+    position: relative;
     // width: 22.2%;
     width: 24%;
-    top: 50%;
+    // top: 50%;
     // right: 3.75%;
     right: 3%;
   }
@@ -102,7 +105,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  transform: translateY(-50%);
+  // transform: translateY(-50%);
   font-weight: 300;
   font-size: 20px;
   line-height: 120%;
@@ -147,10 +150,10 @@
     top: 0;
   }
 
-  $duration: 5s;
+  $duration: 12s;
 
   &::before {
-    left: 3px;
+    left: 1px;
     text-shadow: -2px 0 red;
     animation-name: glitch-animation-1;
     animation-duration: $duration;
@@ -161,7 +164,7 @@
   }
 
   &::after {
-    left: -3px;
+    left: -1px;
     text-shadow: -2px 0 blue;
     animation-name: glitch-animation-2;
     animation-duration: $duration;
