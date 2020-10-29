@@ -85,7 +85,7 @@ function scrollDown() {
       
       updateCurPoint();
       
-      scrollTo(500);
+      scrollNext(500);
     }
   });
 
@@ -97,8 +97,6 @@ function scrollDown() {
 
   setInterval(() => {
     updateBtn();
-
-    console.log(btnActive);
   }, 1000);
 
   function updateBtn() {
@@ -132,7 +130,7 @@ function scrollDown() {
 
   // animation scroll to
   
-  function scrollTo(duration) {
+  function scrollNext(duration) {
     if (++curPoint < points.length) {
       const startScroll = $(window).scrollTop();
       const dist = points[curPoint] - startScroll;
@@ -158,6 +156,7 @@ function scrollDown() {
         if (progress < 1) {
           requestAnimationFrame(animate);
         } else {
+          $(window).scrollTop(Math.ceil(points[curPoint]));
           animation = false;
         }
       });
