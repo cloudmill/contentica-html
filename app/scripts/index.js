@@ -387,12 +387,16 @@ function pageTitleFade() {
     if (windowBottomY > fadeStart + fadeDist) {
       $(".page-title").css("opacity", 0);
       $(".page-title").css("pointer-events", "none");
+      $(".header__features").css("opacity", 0);
+      $(".header__features").css("pointer-events", "none");
 
       afterFade = true;
       beforeFade = false;
     } else if (windowBottomY < fadeStart) {
       $(".page-title").css("opacity", 1);
       $(".page-title").css("pointer-events", "all");
+      $(".header__features").css("opacity", 1);
+      $(".header__features").css("pointer-events", "all");
 
       beforeFade = true;
       afterFade = false;
@@ -401,6 +405,8 @@ function pageTitleFade() {
       
       $(".page-title").css("opacity", 1 - fadeProgress);
       $(".page-title").css("pointer-events", "all");
+      $(".header__features").css("opacity", 1 - fadeProgress);
+      $(".header__features").css("pointer-events", "all");
     }
   }
 
@@ -417,6 +423,8 @@ function pageTitleFade() {
       } else if (windowBottomY < fadeStart) {
         $(".page-title").css("opacity", 1);
         $(".page-title").css("pointer-events", "all");
+        $(".header__features").css("opacity", 1);
+        $(".header__features").css("pointer-events", "all");
 
         beforeFade = true;
         afterFade = false;
@@ -425,9 +433,12 @@ function pageTitleFade() {
         
         $(".page-title").css("opacity", 1 - fadeProgress);
         $(".page-title").css("pointer-events", "all");
+        $(".header__features").css("opacity", 1 - fadeProgress);
+        $(".header__features").css("pointer-events", "all");
       }
     } else {
       $(".page-title").css("opacity", 1);
+      $(".header__features").css("opacity", 1);
     }
   });
 
@@ -439,6 +450,8 @@ function pageTitleFade() {
         if (!afterFade) {
           $(".page-title").css("opacity", "0");
           $(".page-title").css("pointer-events", "none");
+          $(".header__features").css("opacity", 0);
+          $(".header__features").css("pointer-events", "none");
           
           afterFade = true;
         }
@@ -446,6 +459,8 @@ function pageTitleFade() {
         if (!beforeFade) {
           $(".page-title").css("opacity", 1);
           $(".page-title").css("pointer-events", "all");
+          $(".header__features").css("opacity", 1);
+          $(".header__features").css("pointer-events", "all");
     
           beforeFade = true;
         }
@@ -454,6 +469,8 @@ function pageTitleFade() {
         
         $(".page-title").css("opacity", 1 - fadeProgress);
         $(".page-title").css("pointer-events", "all");
+        $(".header__features").css("opacity", 1 - fadeProgress);
+        $(".header__features").css("pointer-events", "all");
     
         if (beforeFade) {
           beforeFade = false;
