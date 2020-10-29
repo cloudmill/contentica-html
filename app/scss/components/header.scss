@@ -14,6 +14,7 @@
 
 .header__line--bottom {
   align-items: flex-end;
+  pointer-events: none;
 
   @media (min-width: 1201px) {
     position: fixed;

@@ -79,7 +79,7 @@ function scrollDown() {
 
   // click scroll down
   
-  $(".scroll-down__button").click(() => {
+  $(".scroll-down__button").click(function () {
     if (!animation) {
       animation = true;
       
@@ -88,6 +88,47 @@ function scrollDown() {
       scrollTo(500);
     }
   });
+
+  // update btn
+
+  let btnActive = true;
+
+  updateBtn();
+
+  setInterval(() => {
+    updateBtn();
+
+    console.log(btnActive);
+  }, 1000);
+
+  function updateBtn() {
+    const btn = $(".scroll-down__button")[0].getBoundingClientRect();
+    const links = $("a");
+
+    for (let i = 0; i < links.length; i++) {
+      const link = links[i].getBoundingClientRect();
+
+      if (
+        link.x + link.width >= btn.x && link.x <= btn.x + btn.width
+        &&
+        link.y + link.height >= btn.y && link.y <= btn.y + btn.height
+      ) {
+        if (btnActive) {
+          btnActive = false;
+
+          $(".scroll-down__button").css("pointer-events", "none");
+        }
+
+        return;
+      }
+    }
+
+    if (!btnActive) {
+      btnActive = true;
+
+      $(".scroll-down__button").css("pointer-events", "");
+    }
+  }
 
   // animation scroll to
   

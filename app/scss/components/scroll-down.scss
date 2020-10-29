@@ -29,6 +29,7 @@ $arrow-bottom: 4px;
   text-transform: uppercase;
   cursor: pointer;
   user-select: none;
+  pointer-events: all;
 
   &::before {
     position: absolute;
