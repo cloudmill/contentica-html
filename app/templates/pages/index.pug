@@ -37,16 +37,35 @@ block content
           .logo.logo--in-header
             img(src="images/contentica.svg", alt="logo").logo__img
           +timer("timer--right-top")
-        h1.page-title.page-title--line-break.header__title
-          | Производим, 
-          br
-          | дистрибутируем, 
-          br
-          | озвучиваем 
-          br
-          | и субтитрируем 
-          br
-          | видеоконтент
+        .header__title
+          h1.page-title.page-title--line-break
+            span(data-item="0").page-title__feature-title Производим
+            | , 
+            br
+            span(data-item="1").page-title__feature-title дистрибутируем
+            | , 
+            br
+            span(data-item="2").page-title__feature-title озвучиваем 
+            br
+            | и 
+            span(data-item="3").page-title__feature-title субтитрируем 
+            br
+            | видеоконтент
+        .header__features
+          p(data-item="0").header__feature
+            | Производство различных программ и шоу для телевидения 
+            br
+            | и VOD платформ. Сотрудничаем как с российскими телеканалами, так и с каналами стран СНГ. Постоянное производство, большие объемы. Спросите нас и мы расскажем и покажем, что было снято в последние месяцы.
+          p(data-item="1").header__feature
+            | Дистрибуция всех видов прав на видео контент. Ежегодный объем сделок – свыше 7 тысяч часов. 
+          p(data-item="2").header__feature
+            | Собственная студия озвучания, отдельное внимание уделяем работе с текстом, от перевода 
+            br
+            | до укладки. Сотрудничаем 
+            br
+            | с крупными международными сетями, при необходимости можем озвучить носителем языка практически на любой язык мира.
+          p(data-item="3").header__feature
+            | Собственная студия производства субтитров. Большой собственный штат сотрудников, прошедших строгий отбор в том числе на предмет идеальной грамотности.
         .header__line.header__line--bottom
           .header__group.header__group--battery-scroll
             +battery(0)

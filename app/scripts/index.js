@@ -34,7 +34,21 @@ window.onload = function (event) {
   scrollDown();
 
   scrollUp();
+
+  features();
 };
+
+function features() {
+  $(".page-title__feature-title").mouseenter(function () {
+    const item = $(this).data("item");
+
+    $(`.header__feature[data-item="${item}"]`).addClass("header__feature--active");
+  });
+
+  $(".page-title__feature-title").mouseout(() => {
+    $(".header__feature").removeClass("header__feature--active");
+  });
+}
 
 function scrollUp() {
   let animation = false;
