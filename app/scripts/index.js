@@ -34,21 +34,7 @@ window.onload = function (event) {
   scrollDown();
 
   scrollUp();
-
-  features();
 };
-
-function features() {
-  $(".page-title__feature-title").mouseenter(function () {
-    const item = $(this).data("item");
-
-    $(`.header__feature[data-item="${item}"]`).addClass("header__feature--active");
-  });
-
-  $(".page-title__feature-title").mouseout(() => {
-    $(".header__feature").removeClass("header__feature--active");
-  });
-}
 
 function scrollUp() {
   let animation = false;
@@ -385,22 +371,22 @@ function pageTitleFade() {
 
   if ($(window).width() > 1200) {
     if (windowBottomY > fadeStart + fadeDist) {
-      $(".header__title").css("opacity", 0);
-      $(".header__title").css("pointer-events", "none");
+      $(".page-title").css("opacity", 0);
+      $(".page-title").css("pointer-events", "none");
 
       afterFade = true;
       beforeFade = false;
     } else if (windowBottomY < fadeStart) {
-      $(".header__title").css("opacity", 1);
-      $(".header__title").css("pointer-events", "all");
+      $(".page-title").css("opacity", 1);
+      $(".page-title").css("pointer-events", "all");
 
       beforeFade = true;
       afterFade = false;
     } else {
       const fadeProgress = (windowBottomY - fadeStart) / fadeDist;
       
-      $(".header__title").css("opacity", 1 - fadeProgress);
-      $(".header__title").css("pointer-events", "all");
+      $(".page-title").css("opacity", 1 - fadeProgress);
+      $(".page-title").css("pointer-events", "all");
     }
   }
 
@@ -415,19 +401,19 @@ function pageTitleFade() {
         afterFade = true;
         beforeFade = false;
       } else if (windowBottomY < fadeStart) {
-        $(".header__title").css("opacity", 1);
-        $(".header__title").css("pointer-events", "all");
+        $(".page-title").css("opacity", 1);
+        $(".page-title").css("pointer-events", "all");
 
         beforeFade = true;
         afterFade = false;
       } else {
         const fadeProgress = (windowBottomY - fadeStart) / fadeDist;
         
-        $(".header__title").css("opacity", 1 - fadeProgress);
-        $(".header__title").css("pointer-events", "all");
+        $(".page-title").css("opacity", 1 - fadeProgress);
+        $(".page-title").css("pointer-events", "all");
       }
     } else {
-      $(".header__title").css("opacity", 1);
+      $(".page-title").css("opacity", 1);
     }
   });
 
@@ -437,23 +423,23 @@ function pageTitleFade() {
 
       if (windowBottomY > fadeStart + fadeDist) {
         if (!afterFade) {
-          $(".header__title").css("opacity", 0);
-          $(".header__title").css("pointer-events", "none");
+          $(".page-title").css("opacity", "0");
+          $(".page-title").css("pointer-events", "none");
           
           afterFade = true;
         }
       } else if (windowBottomY < fadeStart) {
         if (!beforeFade) {
-          $(".header__title").css("opacity", 1);
-          $(".header__title").css("pointer-events", "all");
+          $(".page-title").css("opacity", 1);
+          $(".page-title").css("pointer-events", "all");
     
           beforeFade = true;
         }
       } else {
         const fadeProgress = (windowBottomY - fadeStart) / fadeDist;
         
-        $(".header__title").css("opacity", 1 - fadeProgress);
-        $(".header__title").css("pointer-events", "all");
+        $(".page-title").css("opacity", 1 - fadeProgress);
+        $(".page-title").css("pointer-events", "all");
     
         if (beforeFade) {
           beforeFade = false;

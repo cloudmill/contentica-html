@@ -4,7 +4,7 @@
   font-weight: 300;
   font-size: 100px;
   line-height: 90%;
-  cursor: default;
+  pointer-events: none;
 
   br {
     display: none;
@@ -30,35 +30,5 @@
 .page-title--line-break {
   br {
     display: initial;
-  }
-}
-
-// FEATURE-TITLE
-
-.page-title__feature-title {
-  position: relative;
-
-  &::before {
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: 0.04em;
-    left: 0.05em;
-    right: 0.05em;
-    transform-origin: left;
-    transform: scaleX(0);
-    background: $color-red;
-    height: 0.07em;
-    transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
-
-    @media (max-width: 1200px) {
-      display: none;
-    }
-  }
-
-  &:hover {
-    &::before {
-      transform: scaleX(1);
-    }
   }
 }
