@@ -34,7 +34,38 @@ window.onload = function (event) {
   scrollDown();
 
   scrollUp();
+
+  features();
 };
+
+function features() {
+  let description;
+  let descriptionStyle;
+
+  $(".main__section-title").mouseover(function () {
+    description = $(this).find(".main__section-description");
+
+    const descriptionClone = $(description[0].cloneNode(true));
+    descriptionClone.css("position", "fixed");
+    descriptionClone.css("opacity", 0);
+    descriptionClone.css("max-height", "none");
+    descriptionClone.css("transition", "none");
+
+    document.body.appendChild(descriptionClone[0]);
+
+    const height = descriptionClone.height();
+
+    descriptionClone[0].remove();
+
+    description.css("max-height", height + "px");
+  });
+
+  $(".main__section-title").mouseout(function () {
+    description = $(this).find(".main__section-description");
+
+    description.css("max-height", "");
+  });
+}
 
 function scrollUp() {
   let animation = false;
@@ -234,7 +265,7 @@ function sectionTitle() {
     title.css("opacity", 0);
     title.css("position", "fixed");
     title.css("top", "50%");
-    title.css("left", "0");
+    title.css("left", "6.8%");
     title.css("transform", "translateY(-50%)");
     
     visibly = [];
@@ -261,6 +292,8 @@ function sectionTitle() {
         ) {
           visibly[index] = false;
           $(element).css("opacity", 0);
+          // NEW
+          $(element).css("pointer-events", "");
         }
       } else {
         if (
@@ -268,6 +301,8 @@ function sectionTitle() {
           && pageYOffset <= titleY[index] + DIST
         ) {
           visibly[index] = true;
+          // NEW
+          $(element).css("pointer-events", "all");
         }
       }
 
