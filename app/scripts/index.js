@@ -43,7 +43,7 @@ function features() {
   let descriptionStyle;
 
   $(".main__section-title").mouseover(function () {
-    if ($(window).width() <= 1200) {
+    if ($(window).width() > 1200) {
       description = $(this).find(".main__section-description");
 
       const descriptionClone = $(description[0].cloneNode(true));
@@ -63,7 +63,7 @@ function features() {
   });
 
   $(".main__section-title").mouseout(function () {
-    if ($(window).width <= 1200) {
+    if ($(window).width() > 1200) {
       description = $(this).find(".main__section-description");
 
       description.css("max-height", "");
