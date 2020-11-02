@@ -1,4 +1,4 @@
-// variables
+// VARS
 
 $bottom-color: #e12626;
 $mid-color: #f53636;
@@ -6,17 +6,16 @@ $top-color: #ff4848;
 
 $duration: 1s;
 
-$bottom-time-f: ease-in;
-$mid-time-f: linear;
-$top-time-f: ease-out;
+$bottom-func: ease-in;
+$mid-func: linear;
+$top-func: ease-out;
 
-// preloader
+// PRELOADER
 
 .preloader {
-  position: fixed;
-  z-index: 10000;
   @include pos-cover();
-  pointer-events: none;
+  position: fixed;
+  z-index: 1;
 }
 
 .preloader--closing {
@@ -29,11 +28,11 @@ $top-time-f: ease-out;
   display: none;
 }
 
-// preloader item
+// PRELOADER ITEM
 
 .preloader__item {
-  position: absolute;
   @include pos-cover();
+  position: absolute;
   transform-origin: right;
   transition-duration: $duration;
 }
@@ -41,17 +40,17 @@ $top-time-f: ease-out;
 .preloader__item--bottom {
   z-index: 1;
   background: $bottom-color;
-  transition-timing-function: $bottom-time-f;
+  transition-timing-function: $bottom-func;
 }
 
 .preloader__item--mid {
   z-index: 2;
   background: $mid-color;
-  transition-timing-function: $mid-time-f;
+  transition-timing-function: $mid-func;
 }
 
 .preloader__item--top {
   z-index: 3;
   background: $top-color;
-  transition-timing-function: $top-time-f;
+  transition-timing-function: $top-func;
 }

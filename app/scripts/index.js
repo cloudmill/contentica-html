@@ -43,27 +43,31 @@ function features() {
   let descriptionStyle;
 
   $(".main__section-title").mouseover(function () {
-    description = $(this).find(".main__section-description");
+    if ($(window).width() <= 1200) {
+      description = $(this).find(".main__section-description");
 
-    const descriptionClone = $(description[0].cloneNode(true));
-    descriptionClone.css("position", "fixed");
-    descriptionClone.css("opacity", 0);
-    descriptionClone.css("max-height", "none");
-    descriptionClone.css("transition", "none");
+      const descriptionClone = $(description[0].cloneNode(true));
+      descriptionClone.css("position", "fixed");
+      descriptionClone.css("opacity", 0);
+      descriptionClone.css("max-height", "none");
+      descriptionClone.css("transition", "none");
 
-    document.body.appendChild(descriptionClone[0]);
+      document.body.appendChild(descriptionClone[0]);
 
-    const height = descriptionClone.height();
+      const height = descriptionClone.height();
 
-    descriptionClone[0].remove();
+      descriptionClone[0].remove();
 
-    description.css("max-height", height + "px");
+      description.css("max-height", height + "px");
+    }
   });
 
   $(".main__section-title").mouseout(function () {
-    description = $(this).find(".main__section-description");
+    if ($(window).width <= 1200) {
+      description = $(this).find(".main__section-description");
 
-    description.css("max-height", "");
+      description.css("max-height", "");
+    }
   });
 }
 
