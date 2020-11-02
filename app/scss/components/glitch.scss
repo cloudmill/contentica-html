@@ -1,0 +1,77 @@
+// GLITCH
+
+.glitch {}
+
+// GLITCH WRAPPER
+
+.glitch__wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// GLITCH TEXT
+
+.glitch__text {
+  position: relative;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    content: attr(data-text);
+    background: transparent;
+    white-space: pre-line;
+    overflow: hidden;
+  }
+
+  $duration: 25s;
+
+  &::before {
+    left: 1px;
+    text-shadow: -2px 0 red;
+    animation-name: glitch-animation-1;
+    animation-duration: $duration;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse-alternate;
+  }
+
+  &::after {
+    left: -1px;
+    text-shadow: -2px 0 blue;
+    animation-name: glitch-animation-2;
+    animation-duration: $duration;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse-alternate;
+  }
+}
+
+$height: 120;
+
+@keyframes glitch-animation-1 {
+  $steps: 100;
+
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random($height)+px, 420px, random($height)+px, 0);
+    }
+  }
+}
+
+@keyframes glitch-animation-2 {
+  $steps: 100;
+
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random($height)+px, 420px, random($height)+px, 0);
+    }
+  }
+}
