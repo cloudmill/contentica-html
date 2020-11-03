@@ -5,7 +5,7 @@ $(document).ready(function() {
   let app = new App();
 });
 
-window.onload = function (event) {
+$(".camera").on("load", function (event) {
   // preloader
   // работа прелоадера проверена с помощью цикла for на 100000 итераций (небольшая задержка)
   // запущенного на событии jquery ready
@@ -36,7 +36,7 @@ window.onload = function (event) {
   scrollUp();
 
   features();
-};
+});
 
 function features() {
   let description;
