@@ -20,7 +20,7 @@ $top-func: ease-out;
 
 .preloader--closing {
   .preloader__item {
-    transform: translateX(100%);
+    transform: translate3d(100%,0,0);
   }
 }
 
@@ -35,6 +35,8 @@ $top-func: ease-out;
   position: absolute;
   transform-origin: right;
   transition-duration: $duration;
+  transform: translate3d(0,0,0);
+  will-change: auto;
 }
 
 .preloader__item--bottom {

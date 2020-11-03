@@ -8,8 +8,8 @@ block content
   +preloader
   .page
     script
-      | let cameraLoaded = false; 
-    img(src="images/camera.png" alt="" onload="cameraLoaded = true").camera
+      | var isCameraLoaded = false;
+    img(src="images/camera.png" alt="" onload="isCameraLoaded = true;").camera
     header.page__header
       .page__header-inner.header
         .header__line

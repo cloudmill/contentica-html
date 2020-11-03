@@ -1,15 +1,28 @@
 import $ from "jquery";
 import App from "./main.js";
 
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function() {
   let app = new App();
 
-  if (cameraLoaded) {
+  if (isCameraLoaded) {
+    $(".console").text($(".console").text() + "\n" + "DOM");
+
     code();
-  } else {
+  } else {    
     $(".camera").on("load", () => {
+      $(".console").text($(".console").text() + "\n" + "CAMERA");
+
       code();
     })
+  }
+});
+
+$(".console").on("click", () => {
+  $(".console").text($(".console").text() + "\n" + "CLICK");
+
+  const classList = $(".preloader")[0].classList;
+  for (let i = 0; i < classList.length; i++) {
+    $(".console").text($(".console").text() + "\n" + classList[i]);
   }
 });
 
@@ -583,15 +596,34 @@ function closePreloader() {
 
   // если preloader изначально не закрыт
   if (!preloader.hasClass(".preloader--closed")) {
+    $(".console").text($(".console").text() + "\n" + "PRELOADER START");
     // добавляем к нему класс с transition'ом закрытия
     preloader.addClass("preloader--closing");
 
     // т.к. duration одинакова для всех preloader item'ов
     // то обработчик конца анимации закрытия достаточно "повесить" на любой из них
     const preloaderItems = preloader.find(".preloader__item");
+    
+    let transitionEnd = false;
+
     preloaderItems.eq(0).on("transitionend", function (event) {
-      preloader.removeClass("preloader--closing");
-      preloader.addClass("preloader--closed");
+      if (!transitionEnd) {
+        transitionEnd = true;
+
+        $(".console").text($(".console").text() + "\n" + "PRELOADER END");
+        preloader.removeClass("preloader--closing");
+        preloader.addClass("preloader--closed");
+      }
+    });
+
+    preloaderItems.eq(0).on("webkitTransitionEnd", function (event) {
+      if (!transitionEnd) {
+        transitionEnd = true;
+
+        $(".console").text($(".console").text() + "\n" + "PRELOADER END");
+        preloader.removeClass("preloader--closing");
+        preloader.addClass("preloader--closed");
+      }
     });
   }
 }

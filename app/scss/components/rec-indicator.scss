@@ -34,7 +34,7 @@ $animation-options: 2s infinite steps(1);
 }
 
 .rec-indicator--on-preloader {
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
