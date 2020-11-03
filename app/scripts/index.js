@@ -1,22 +1,31 @@
 import $ from "jquery";
 import App from "./main.js";
 
+let isLaunched = false;
+
 $(document).ready(function() {
   let app = new App();
+
+  if (!isLaunched) {
+    isLaunched = true;
+
+    code();
+  }
 });
 
 $(".camera").on("load", function (event) {
-  // preloader
-  // работа прелоадера проверена с помощью цикла for на 100000 итераций (небольшая задержка)
-  // запущенного на событии jquery ready
+  if (!isLaunched) {
+    isLaunched = true;
+
+    code();
+  }
+});
+
+function code() {
   closePreloader();
 
-  // timer
-  // timer запускается здесь (onload)
-  // поскольку именно здесь закрывается preloader
   timer();
 
-  // dot-link
   dotLinks();
 
   camera();
@@ -36,7 +45,7 @@ $(".camera").on("load", function (event) {
   scrollUp();
 
   features();
-});
+}
 
 function features() {
   let description;
