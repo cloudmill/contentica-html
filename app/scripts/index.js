@@ -5,26 +5,15 @@ document.addEventListener("DOMContentLoaded", function() {
   let app = new App();
 
   if (isCameraLoaded) {
-    $(".console").text($(".console").text() + "\n" + "DOM");
-
     code();
   } else {    
     $(".camera").on("load", () => {
-      $(".console").text($(".console").text() + "\n" + "CAMERA");
-
       code();
     })
   }
 });
 
-$(".console").on("click", () => {
-  $(".console").text($(".console").text() + "\n" + "CLICK");
 
-  const classList = $(".preloader")[0].classList;
-  for (let i = 0; i < classList.length; i++) {
-    $(".console").text($(".console").text() + "\n" + classList[i]);
-  }
-});
 
 function code() {
   closePreloader();
@@ -596,35 +585,44 @@ function closePreloader() {
 
   // если preloader изначально не закрыт
   if (!preloader.hasClass(".preloader--closed")) {
-    $(".console").text($(".console").text() + "\n" + "PRELOADER START");
-    // добавляем к нему класс с transition'ом закрытия
-    preloader.addClass("preloader--closing");
+    let prevFrameTime;
+    let nextFrameTime = (new Date()).getTime();
 
-    // т.к. duration одинакова для всех preloader item'ов
-    // то обработчик конца анимации закрытия достаточно "повесить" на любой из них
-    const preloaderItems = preloader.find(".preloader__item");
+    setTimeout(function checkFps() {
+      prevFrameTime = nextFrameTime;
+      nextFrameTime = (new Date()).getTime();
+
+      if (nextFrameTime - prevFrameTime <= 1000 / 24) {
+        // добавляем к нему класс с transition'ом закрытия
+        preloader.addClass("preloader--closing");
     
-    let transitionEnd = false;
-
-    preloaderItems.eq(0).on("transitionend", function (event) {
-      if (!transitionEnd) {
-        transitionEnd = true;
-
-        $(".console").text($(".console").text() + "\n" + "PRELOADER END");
-        preloader.removeClass("preloader--closing");
-        preloader.addClass("preloader--closed");
+        // т.к. duration одинакова для всех preloader item'ов
+        // то обработчик конца анимации закрытия достаточно "повесить" на любой из них
+        const preloaderItems = preloader.find(".preloader__item");
+        
+        let transitionEnd = false;
+    
+        preloaderItems.eq(0).on("transitionend", function (event) {
+          if (!transitionEnd) {
+            transitionEnd = true;
+    
+            preloader.removeClass("preloader--closing");
+            preloader.addClass("preloader--closed");
+          }
+        });
+    
+        preloaderItems.eq(0).on("webkitTransitionEnd", function (event) {
+          if (!transitionEnd) {
+            transitionEnd = true;
+    
+            preloader.removeClass("preloader--closing");
+            preloader.addClass("preloader--closed");
+          }
+        });
+      } else {
+        setTimeout(checkFps, 0);
       }
-    });
-
-    preloaderItems.eq(0).on("webkitTransitionEnd", function (event) {
-      if (!transitionEnd) {
-        transitionEnd = true;
-
-        $(".console").text($(".console").text() + "\n" + "PRELOADER END");
-        preloader.removeClass("preloader--closing");
-        preloader.addClass("preloader--closed");
-      }
-    });
+    }, 0);
   }
 }
 
