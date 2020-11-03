@@ -1,24 +1,15 @@
 import $ from "jquery";
 import App from "./main.js";
 
-let isCameraLoaded = false;
-let isDOMContentLoaded = false;
-
 $(document).ready(function() {
   let app = new App();
 
-  isDOMContentLoaded = true;
-
-  if (isCameraLoaded) {
+  if (cameraLoaded) {
     code();
-  }
-});
-
-$(".camera").on("load", function (event) {
-  isCameraLoaded = true;
-
-  if (isDOMContentLoaded) {
-    code();
+  } else {
+    $(".camera").on("load", () => {
+      code();
+    })
   }
 });
 

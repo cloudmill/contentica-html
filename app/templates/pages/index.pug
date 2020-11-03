@@ -7,7 +7,9 @@ block variables
 block content
   +preloader
   .page
-    img(src="images/camera.png" alt="").camera
+    script
+      | let cameraLoaded = false;
+    img(src="images/camera.png" alt="" onload="cameraLoaded = true").camera
     header.page__header
       .page__header-inner.header
         .header__line
