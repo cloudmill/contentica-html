@@ -33,6 +33,18 @@ $animation-options: 2s infinite steps(1);
   }
 }
 
+.rec-indicator--on-preloader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+
+  .rec-indicator__dot {
+    background: white;
+  }
+}
+
 // rec-indicator dot
 
 .rec-indicator__dot {

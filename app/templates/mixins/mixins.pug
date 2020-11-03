@@ -20,6 +20,7 @@ mixin preloader(closed = false)
     .preloader__item.preloader__item--bottom
     .preloader__item.preloader__item--mid
     .preloader__item.preloader__item--top
+      +rec-indicator("rec-indicator--on-preloader")
 
 //- timer
 
@@ -61,8 +62,8 @@ mixin scroll-down(classList)
 
 //- rec-indicator
 
-mixin rec-indicator
-  .rec-indicator
+mixin rec-indicator(classes = "")
+  div(class = classes).rec-indicator
     .rec-indicator__dot
 
 //- time-indicator

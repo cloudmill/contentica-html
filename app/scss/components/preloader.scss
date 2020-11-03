@@ -20,7 +20,7 @@ $top-func: ease-out;
 
 .preloader--closing {
   .preloader__item {
-    transform: scaleX(0);
+    transform: translateX(100%);
   }
 }
 
