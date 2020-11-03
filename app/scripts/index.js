@@ -41,34 +41,27 @@ function code() {
 
 function features() {
   let description;
-  let descriptionStyle;
+  let descriptionText;
 
-  $(".main__section-title").mouseover(function () {
-    if ($(window).width() > 1200) {
-      description = $(this).find(".main__section-description");
+  $(".main__section-title").on("click", function () {
+    $(".main__section-title").removeClass("main__section-title--active");
+    $(".main__section-description").css("max-height", "");
 
-      const descriptionClone = $(description[0].cloneNode(true));
-      descriptionClone.css("position", "fixed");
-      descriptionClone.css("opacity", 0);
-      descriptionClone.css("max-height", "none");
-      descriptionClone.css("transition", "none");
+    $(this).addClass("main__section-title--active");
 
-      document.body.appendChild(descriptionClone[0]);
+    description = $(this).find(".main__section-description");
+    descriptionText = description.find(".main__section-text");
 
-      const height = descriptionClone.height();
-
-      descriptionClone[0].remove();
-
-      description.css("max-height", height + "px");
-    }
+    description.css("max-height", descriptionText.height() + "px");
   });
 
-  $(".main__section-title").mouseout(function () {
-    if ($(window).width() > 1200) {
+  $(window).on("resize", () => {
+    $(".main__section-title--active").each(function () {
       description = $(this).find(".main__section-description");
+      descriptionText = description.find(".main__section-text");
 
-      description.css("max-height", "");
-    }
+      description.css("max-height", descriptionText.height() + "px");
+    });
   });
 }
 
