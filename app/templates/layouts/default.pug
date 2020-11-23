@@ -1,40 +1,54 @@
-//- переменные описанные в этом блоке на странице наследующей этот шаблон
-//- работают как на самой странице, так и в шаблоне (передаются в шаблон)
 block variables
 
-//- подключаем общие миксины для всех страниц, наследующих этот шаблон
-//- страница может дополнить общие миксины подключением/определением необходимых только ей в этом блоке
+
+
 block mixins
-  include ../mixins/mixins.pug
+    include ../mixins/mixins.pug
+
+
 
 doctype html
+
 html(lang="ru")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    meta(name="title", content="Contentica")
-    meta(name="description", content="Производим, дистрибутируем, озвучиваем и субтитрируем видеоконтент.")
-    title=pageTitle
-    link(rel="stylesheet", href="css/style.min.css")
-    //- favicon
-    link(rel="icon", href="favicon.ico")
-    link(rel="apple-touch-icon", sizes="180x180", href="apple-touch-icon-180.png")
-    link(rel="icon", type="image/png", sizes="32x32", href="favicon-32×32.png")
-    link(rel="icon", type="image/png", sizes="16x16", href="favicon-16×16.png")
-    link(rel="manifest", href="manifest.json")
-    link(rel="mask-icon", href="safari-pinned-tab.svg", color="#000000")
-    meta(name="theme-color", content="#000000")
-    //- open graph
-    meta(property="og:title", content="Contentica")
-    meta(property="og:description", content="Производим, дистрибутируем, озвучиваем и субтитрируем видеоконтент")
-    meta(property="og:image", content="opengraph.jpg")
-    meta(property="og:type", content="website")
-    meta(property="og:site_name", content="Contentica")
-    meta(property="og:locale", content="ru_RU")
-    meta(property="og:url", content="https://cloudmill.github.io/contentica-html/")
-  body
-    //- содержание body
-    block content
-    //- подключение результирующего bundle'a js-скриптов (точка входа index.js)
-    block scripts
-      script(src="js/scripts.min.js")
+
+    head
+
+        meta(charset="UTF-8")
+
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+        meta(name="title", content="Contentica")
+        meta(name="description", content="Производим, дистрибутируем, озвучиваем и субтитрируем видеоконтент.")
+        title #{pageTitle}
+
+        link(rel="stylesheet", href="css/style.min.css")
+
+
+        //- favicon
+        link(rel="icon", href="favicon.ico")
+        link(rel="apple-touch-icon", sizes="180x180", href="apple-touch-icon-180.png")
+        link(rel="icon", type="image/png", sizes="32x32", href="favicon-32×32.png")
+        link(rel="icon", type="image/png", sizes="16x16", href="favicon-16×16.png")
+        link(rel="manifest", href="manifest.json")
+        link(rel="mask-icon", href="safari-pinned-tab.svg", color="#000000")
+        meta(name="theme-color", content="#000000")
+
+
+        //- open graph
+        meta(property="og:title", content="Contentica")
+        meta(property="og:description", content="Производим, дистрибутируем, озвучиваем и субтитрируем видеоконтент")
+        meta(property="og:image", content="opengraph.jpg")
+        meta(property="og:type", content="website")
+        meta(property="og:site_name", content="Contentica")
+        meta(property="og:locale", content="ru_RU")
+        meta(property="og:url", content="https://cloudmill.github.io/contentica-html/")
+
+
+    body
+
+        block content
+        
+
+        block scripts
+
+            script(src="js/scripts.min.js")

@@ -1,27 +1,95 @@
 // logo
 
 .logo {
-  width: 200px;
-  height: 40px;
-  cursor: pointer;
+    position: relative;
+    width: 200px;
+    height: 40px;
+    cursor: pointer;
 
-  @media (max-width: 640px) {
-    width: 165px;
-  }
+    @media (max-width: 640px) {
+        width: 165px;
+    }
 }
 
-.logo--in-header {
-  @media (min-width: 1201px) {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
+
 
 // logo img
 
 .logo__img {
-  display: block;
-  max-width: 100%;
+    display: block;
+    max-width: 100%;
+}
+
+
+
+// language switcher
+
+.logo__lang-list {
+    position: absolute;
+    top: 0;
+    left: -60px;
+    transform: translateX(-100%);
+    display: flex;
+    cursor: initial;
+    white-space: nowrap;
+
+    @media (min-width: 1601px) {
+        left: -130px;
+    }
+
+    @media (max-width: 1600px) {
+        left: -110px;
+    }
+
+    @media (max-width: 1500px) {
+        left: -90px;
+    }
+
+    @media (max-width: 1400px) {
+        left: -70px;
+    }
+
+    @media (max-width: 1300px) {
+        left: -40px;
+    }
+
+    @media (max-width: 1200px) {
+        top: auto;
+        bottom: -20px;
+        left: 0;
+        transform: translateY(100%);
+    }
+}
+
+.logo__lang-item {
+    font-size: 20px;
+    line-height: 90%;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+    transition: $ease-main;
+
+    &:not(:first-child) {
+        margin-left: 20px;
+    }
+
+    &:hover {
+        border-color: white;
+    }
+
+    &--active {
+        color: $color-red;
+        pointer-events: none;
+    }
+}
+
+
+
+.logo--in-header {
+    @media (min-width: 1201px) {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }

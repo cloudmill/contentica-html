@@ -1,192 +1,228 @@
 extends ../layouts/default.pug
 
+
+
 block variables
-  -
-    const pageTitle = "Contentica";
+    
+    - const pageTitle = "Contentica";
+
+
 
 block content
-  +preloader
-  .page
-    script
-      | var isCameraLoaded = false;
-    img(src="images/camera.png" alt="" onload="isCameraLoaded = true;").camera
-    header.page__header
-      .page__header-inner.header
-        .header__line
-          .header__line.header__line--left-top
-            +focus
-            .table.table--margin-left.table--left
-              .table__item
-                .table__item-name fps
-                .table__item-value 24
-              .table__item
-                .table__item-name shutter
-                .table__item-value 174.5º
-              .table__item
-                .table__item-name iris
-                .table__item-value t2.2
-          .table.table--right-top
-            .table__item
-              .table__item-name iso
-              .table__item-value 400
-            .table__item
-              .table__item-name wb
-              .table__item-value 5600k
-            .table__item
-              .table__item-name tint
-              .table__item-value 10
-        .header__line.header__line--margin-top
-          .logo.logo--in-header
-            img(src="images/contentica.svg" alt="logo").logo__img
-          +timer("timer--right-top")
-        h1.page-title.page-title--line-break.header__title
-          | Производим, 
-          br
-          | дистрибутируем, 
-          br
-          | озвучиваем 
-          br
-          | и субтитрируем 
-          br
-          | видеоконтент
-        .header__line.header__line--bottom
-          .header__group.header__group--battery-scroll
-            +battery(0)
-            +scroll-down("scroll-down--margin-top")
-          .header__line.header__line--align-end
-            +rec-indicator
-            .header__line.header__line--margin-left
-              +time-indicator("red")
-              +time-indicator("gray", "time-indicator--margin-left")
-          +color-indicator("color-indicator--flex-grow")
-    main.page__main
-      .page__main-inner.main
-        section.main__section
-          .main__section-content
-            video(preload="auto", playsinline, autoplay, loop, muted).main__section-video
-              source(src="https://www.dl.dropboxusercontent.com/s/ljm7hd1c25wynpw/%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC_1.mp4?dl=0" type="video/mp4")
-          h2.main__section-title
-            .main__section-size
-              | Производство
-              br
-              | программ
-              .main__section-service
-                span.main__section-line Производство
-                br
-                span.main__section-line программ
-            .main__section-description
-              .main__section-text
-                | Производство различных программ и шоу для телевидения и VOD платформ. Сотрудничаем как с российскими телеканалами, так и с каналами стран СНГ. Постоянное производство, большие объемы. Спросите нас, и мы расскажем и покажем, что было снято в последние месяцы.
-        section.main__section
-          .main__section-content
-            video(preload="auto", playsinline, autoplay, loop, muted).main__section-video
-              source(src="https://www.dl.dropboxusercontent.com/s/njvwl2cgend00pq/distr.mp4?dl=0" type="video/mp4")
-          h2.main__section-title
-            .main__section-size
-              | дистрибуция
-              br
-              | прав
-              .main__section-service
-                span.main__section-line дистрибуция
-                br
-                span.main__section-line прав
-            .main__section-description
-              .main__section-text
-                | Дистрибуция всех видов прав на видеоконтент. Ежегодный объем сделок – свыше 7 тысяч часов.
-        section.main__section
-          .main__section-content
-            video(preload="auto", playsinline, autoplay, loop, muted).main__section-video
-              source(src="https://www.dl.dropboxusercontent.com/s/6r62n59lbzbft9p/konsult.mp4?dl=0" type="video/mp4")
-          h2.main__section-title
-            .main__section-size
-              | консультация
-              br
-              | телеканалов
-              br
-              | по сетке
-              .main__section-service
-                span.main__section-line консультация
-                br
-                span.main__section-line телеканалов
-                br
-                span.main__section-line по сетке
-            .main__section-description
-              .main__section-text
-                | Свежий, незамыленный взгляд на сетку, иногда со стороны проще увидеть решение. Формат может быть как единоразовым, так и на регулярной основе, например, в формате еженедельных летучек по сетке.
-        section.main__section
-          .main__section-content
-            video(preload="auto", playsinline, autoplay, loop, muted).main__section-video
-              source(src="https://www.dl.dropboxusercontent.com/s/5q6ejje69rrva66/04_recording.mp4?dl=0" type="video/mp4")
-          h2.main__section-title
-            .main__section-size
-              | Озвучивание
-              .main__section-service
-                span.main__section-line Озвучивание
-            .main__section-description
-              .main__section-text
-                | Собственная студия озвучивания, отдельное внимание уделяем работе с текстом, от перевода до укладки. Сотрудничаем с крупными международными сетями, при необходимости можем озвучить носителем языка практически на любой язык мира.
-        section.main__section
-          .main__section-content
-            video(preload="auto", playsinline, autoplay, loop, muted).main__section-video
-              source(src="https://www.dl.dropboxusercontent.com/s/x9mwuht3431hweo/subs.mp4?dl=0" type="video/mp4")
-          h2.main__section-title
-            .main__section-size
-              | производство
-              br
-              | субтитров
-              .main__section-service
-                span.main__section-line производство
-                br
-                span.main__section-line субтитров
-            .main__section-description
-              .main__section-text
-                | Собственная студия производства субтитров. Большой собственный штат сотрудников, прошедших строгий отбор, в том числе на предмет идеальной грамотности.
-        section.main__section
-          .main__section-content
-            video(preload="auto", playsinline, autoplay, loop, muted).main__section-video
-              source(src="https://www.dl.dropboxusercontent.com/s/4dmddjhflwx3tbj/event.mp4?dl=0" type="video/mp4")
-          h2.main__section-title
-            .main__section-size
-              | Событийный
-              br
-              | маркетинг
-              .main__section-service
-                span.main__section-line Событийный
-                br
-                span.main__section-line маркетинг
-            .main__section-description
-              .main__section-text
-                | Оффлайн и онлайн мероприятия, опыт работы с представительствами крупных международных компаний.
-    footer.page__footer
-      .page__footer-inner.footer
-        .footer__group
-          .dot-link
-            .dot-link__link-track
-              a(href="tel: 8 495 639 99 24").dot-link__link +7 495 639-99-24
-              .dot-link__link-move
-              .dot-link__link-over-move
-            .dot-link__tail
-              .dot-link__dot-track
-                .dot-link__dot
-          .dot-link.dot-link--margin-top
-            .dot-link__link-track     
-              a(href="mailto: info@contentica.ru").dot-link__link info@contentica.ru
-              .dot-link__link-move
-              .dot-link__link-over-move
-            .dot-link__tail
-              .dot-link__dot-track
-                .dot-link__dot
-        .footer__line.footer__line--align-end.footer__line--margin-top
-          .footer__group.footer__group--order--1
-            .footer__item.footer__item--font-size--30 Москва,
-              br
-              | Лужнецкая набережная,
-              br
-              | 2/4 строение 3, офис 107
-            .footer__item.footer__item--margin-top
-              a(href="https://yandex.ru/maps/-/CCQt6JhdgB").footer__link.footer__link--on-map.simple-link.simple-link--closed На карте
-          .footer__group.footer__group--margin-top
-            .footer__item.footer__item--font-size--18 © 2020 Contentica
-            a(href="https://www.cloudmill.ru/").footer__item.footer__item--margin-top.footer__item--font-size--18.simple-link.simple-link--closed Сайт сделан в 
-              span.footer__link.footer__link--cloudmill CloudMill
+
+    +preloader
+
+    .page
+
+        script
+            |var isCameraLoaded = false;
+
+
+        img.camera(src="images/camera.png" alt="" onload="isCameraLoaded = true;")
+
+
+        header.page__header
+
+            .page__header-inner.header
+
+
+                .header__line
+                    
+                    .header__line.header__line--left-top
+                        +focus
+                        .table.table--margin-left.table--left
+                            .table__item
+                                .table__item-name fps
+                                .table__item-value 24
+                            .table__item
+                                .table__item-name shutter
+                                .table__item-value 174.5º
+                            .table__item
+                                .table__item-name iris
+                                .table__item-value t2.2
+                    
+                    .table.table--right-top
+                        .table__item
+                            .table__item-name iso
+                            .table__item-value 400
+                        .table__item
+                            .table__item-name wb
+                            .table__item-value 5600k
+                        .table__item
+                            .table__item-name tint
+                            .table__item-value 10
+                
+
+                .header__line.header__line--margin-top
+                
+                    .logo.logo--in-header
+
+                        img(src="images/contentica.svg" alt="logo").logo__img
+
+                        ul.logo__lang-list
+                            li.logo__lang-item.logo__lang-item--active.js-lang--ru ru
+                            li.logo__lang-item.js-lang--en en
+                    
+                    +timer("timer--right-top")
+                
+
+                h1.page-title.page-title--line-break.header__title
+                    | Производим, 
+                    br
+                    | дистрибутируем, 
+                    br
+                    | озвучиваем 
+                    br
+                    | и субтитрируем 
+                    br
+                    | видеоконтент
+                
+
+                .header__line.header__line--bottom
+                    .header__group.header__group--battery-scroll
+                        +battery(0)
+                        +scroll-down("scroll-down--margin-top")
+                    .header__line.header__line--align-end
+                        +rec-indicator
+                        .header__line.header__line--margin-left
+                            +time-indicator("red")
+                            +time-indicator("gray", "time-indicator--margin-left")
+                    +color-indicator("color-indicator--flex-grow")
+    
+
+        main.page__main
+
+            .page__main-inner.main
+            
+                section.main__section(data-section="0")
+                    .main__section-content
+                        video(preload="auto", playsinline, autoplay, loop, muted).main__section-video
+                            source(src="https://www.dl.dropboxusercontent.com/s/ljm7hd1c25wynpw/%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC_1.mp4?dl=0" type="video/mp4")
+                    h2.main__section-title
+                        .main__section-size
+                            | Производство
+                            br
+                            | программ
+                            .main__section-service
+                                span.main__section-line Производство
+                                br
+                                span.main__section-line программ
+                        .main__section-description
+                            .main__section-text
+                                | Производство различных программ и шоу для телевидения и VOD платформ. Сотрудничаем как с российскими телеканалами, так и с каналами стран СНГ. Постоянное производство, большие объемы. Спросите нас, и мы расскажем и покажем, что было снято в последние месяцы.
+                section.main__section(data-section="1")
+                    .main__section-content
+                        video(preload="auto", playsinline, autoplay, loop, muted).main__section-video
+                            source(src="https://www.dl.dropboxusercontent.com/s/njvwl2cgend00pq/distr.mp4?dl=0" type="video/mp4")
+                    h2.main__section-title
+                        .main__section-size
+                            | дистрибуция
+                            br
+                            | прав
+                            .main__section-service
+                                span.main__section-line дистрибуция
+                                br
+                                span.main__section-line прав
+                        .main__section-description
+                            .main__section-text
+                                | Дистрибуция всех видов прав на видеоконтент. Ежегодный объем сделок – свыше 7 тысяч часов.
+                section.main__section(data-section="2")
+                    .main__section-content
+                        video(preload="auto", playsinline, autoplay, loop, muted).main__section-video
+                            source(src="https://www.dl.dropboxusercontent.com/s/6r62n59lbzbft9p/konsult.mp4?dl=0" type="video/mp4")
+                    h2.main__section-title
+                        .main__section-size
+                            | консультация
+                            br
+                            | телеканалов
+                            br
+                            | по сетке
+                            .main__section-service
+                                span.main__section-line консультация
+                                br
+                                span.main__section-line телеканалов
+                                br
+                                span.main__section-line по сетке
+                        .main__section-description
+                            .main__section-text
+                                | Свежий, незамыленный взгляд на сетку, иногда со стороны проще увидеть решение. Формат может быть как единоразовым, так и на регулярной основе, например, в формате еженедельных летучек по сетке.
+                section.main__section(data-section="3")
+                    .main__section-content
+                        video(preload="auto", playsinline, autoplay, loop, muted).main__section-video
+                            source(src="https://www.dl.dropboxusercontent.com/s/5q6ejje69rrva66/04_recording.mp4?dl=0" type="video/mp4")
+                    h2.main__section-title
+                        .main__section-size
+                            | Озвучивание
+                            .main__section-service
+                                span.main__section-line Озвучивание
+                        .main__section-description
+                            .main__section-text
+                                | Собственная студия озвучивания, отдельное внимание уделяем работе с текстом, от перевода до укладки. Сотрудничаем с крупными международными сетями, при необходимости можем озвучить носителем языка практически на любой язык мира.
+                section.main__section(data-section="4")
+                    .main__section-content
+                        video(preload="auto", playsinline, autoplay, loop, muted).main__section-video
+                            source(src="https://www.dl.dropboxusercontent.com/s/x9mwuht3431hweo/subs.mp4?dl=0" type="video/mp4")
+                    h2.main__section-title
+                        .main__section-size
+                            | производство
+                            br
+                            | субтитров
+                            .main__section-service
+                                span.main__section-line производство
+                                br
+                                span.main__section-line субтитров
+                        .main__section-description
+                            .main__section-text
+                                | Собственная студия производства субтитров. Большой собственный штат сотрудников, прошедших строгий отбор, в том числе на предмет идеальной грамотности.
+                section.main__section(data-section="5")
+                    .main__section-content
+                        video(preload="auto", playsinline, autoplay, loop, muted).main__section-video
+                            source(src="https://www.dl.dropboxusercontent.com/s/4dmddjhflwx3tbj/event.mp4?dl=0" type="video/mp4")
+                    h2.main__section-title
+                        .main__section-size
+                            | Событийный
+                            br
+                            | маркетинг
+                            .main__section-service
+                                span.main__section-line Событийный
+                                br
+                                span.main__section-line маркетинг
+                        .main__section-description
+                            .main__section-text
+                                | Оффлайн и онлайн мероприятия, опыт работы с представительствами крупных международных компаний.
+        
+
+        footer.page__footer
+
+            .page__footer-inner.footer
+                .footer__group
+                    .dot-link
+                        .dot-link__link-track
+                            a(href="tel: 8 495 639 99 24").dot-link__link +7 495 639-99-24
+                            .dot-link__link-move
+                            .dot-link__link-over-move
+                        .dot-link__tail
+                            .dot-link__dot-track
+                                .dot-link__dot
+                    .dot-link.dot-link--margin-top
+                        .dot-link__link-track     
+                            a(href="mailto: info@contentica.ru").dot-link__link info@contentica.ru
+                            .dot-link__link-move
+                            .dot-link__link-over-move
+                        .dot-link__tail
+                            .dot-link__dot-track
+                                .dot-link__dot
+                .footer__line.footer__line--align-end.footer__line--margin-top
+                    .footer__group.footer__group--order--1
+                        .footer__item.footer__item--font-size--30 Москва,
+                            br
+                            | Лужнецкая набережная,
+                            br
+                            | 2/4 строение 3, офис 107
+                        .footer__item.footer__item--margin-top
+                            a(href="https://yandex.ru/maps/-/CCQt6JhdgB").footer__link.footer__link--on-map.simple-link.simple-link--closed На карте
+                    .footer__group.footer__group--margin-top
+                        .footer__item.footer__item--font-size--18 © 2020 Contentica
+                        a(href="https://www.cloudmill.ru/").footer__item.footer__item--margin-top.footer__item--font-size--18.simple-link.simple-link--closed Сайт сделан в 
+                            span.footer__link.footer__link--cloudmill CloudMill
 

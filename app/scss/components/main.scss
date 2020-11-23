@@ -131,6 +131,7 @@
 
 .main__section-line {
   position: relative;
+  white-space: nowrap; // test
 
   &::before {
     opacity: 0;

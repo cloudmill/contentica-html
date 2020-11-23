@@ -6,112 +6,117 @@
 //- получаем по одному bundle-спрайту всех добавленных иконок на каждый формат (png/svg)
 //- который с помощью background-image добавляется к элементу i
 //- размеры иконки в верстке в таком случае изменяются с помощью font-size
-
 mixin icon(iconName, type = 'png')
     if(type == 'png')
         i(class='icon '+'icon-'+iconName)
     else
         i(class='svg-icon '+'svg-'+iconName)
 
-//- preloader
 
+
+//- preloader
 mixin preloader(closed = false)
-  div(class = closed ? "preloader--closed" : "").preloader
-    .preloader__item.preloader__item--bottom
-    .preloader__item.preloader__item--mid
-    .preloader__item.preloader__item--top
-      +rec-indicator("rec-indicator--on-preloader")
+    div(class = closed ? "preloader--closed" : "").preloader
+        .preloader__item.preloader__item--bottom
+        .preloader__item.preloader__item--mid
+        .preloader__item.preloader__item--top
+            +rec-indicator("rec-indicator--on-preloader")
+
+
 
 //- timer
-
 mixin timer(classList)
-  div(class = classList).timer
-    .timer__item.timer__item--hr 00
-    .timer__separator :
-    .timer__item.timer__item--min 00
-    .timer__separator :
-    .timer__item.timer__item--sec 00
-    .timer__separator :
-    .timer__item.timer__item--msec 00
+    div(class = classList).timer
+        .timer__item.timer__item--hr 00
+        .timer__separator :
+        .timer__item.timer__item--min 00
+        .timer__separator :
+        .timer__item.timer__item--sec 00
+        .timer__separator :
+        .timer__item.timer__item--msec 00
+
+
 
 //- focus
-
 mixin focus
-  .focus
-    .focus__item.focus__item--left-top
-    .focus__item.focus__item--left-bottom
-    .focus__item.focus__item--right-top
-    .focus__item.focus__item--right-bottom
+    .focus
+        .focus__item.focus__item--left-top
+        .focus__item.focus__item--left-bottom
+        .focus__item.focus__item--right-top
+        .focus__item.focus__item--right-bottom
+
+
 
 //- battery
-
 mixin battery(charge = 1)
-  .battery
-    .battery__body
-      .battery__body-border
-      div(style=`transform: scaleX(${charge})`).battery__charge
-    .battery__tail
+    .battery
+        .battery__body
+            .battery__body-border
+            div(style=`transform: scaleX(${charge})`).battery__charge
+        .battery__tail
+
+
 
 //- scroll down
-
 mixin scroll-down(classList)
-  div(class = classList).scroll-down
-    .scroll-down__button листайте
-      br
-      | вниз
+    div(class = classList).scroll-down
+        .scroll-down__button листайте
+            br
+            | вниз
 
 //- rec-indicator
 
 mixin rec-indicator(classes = "")
-  div(class = classes).rec-indicator
-    .rec-indicator__dot
+    div(class = classes).rec-indicator
+        .rec-indicator__dot
+
+
 
 //- time-indicator
-
 mixin time-indicator(theme, classList)
-  div(class = (classList ? classList : "") + (theme ? (classList ? " " : "") + "time-indicator--theme--" + theme : "")).time-indicator
-    .time-indicator__title
-      .time-indicator__mode 1
-      .time-indicator__type Aoo1
-    .time-indicator__value 90 min
+    div(class = (classList ? classList : "") + (theme ? (classList ? " " : "") + "time-indicator--theme--" + theme : "")).time-indicator
+        .time-indicator__title
+            .time-indicator__mode 1
+            .time-indicator__type Aoo1
+        .time-indicator__value 90 min
+
+
 
 //- color-scale
-
 //- значения размеров из макета
 -
-  const
-    fullWidth = 266,
-    yellowWidth = 76,
-    greenWidth = 136,
-    valueGap = 5,
-    tailWidth = 5;
+    const
+        fullWidth = 266,
+        yellowWidth = 76,
+        greenWidth = 136,
+        valueGap = 5,
+        tailWidth = 5;
 
 mixin color-scale(value = 0.25, classList = "")
-  div(class = classList).color-scale
-    .color-scale__background
-      div(style = `width: ${greenWidth / fullWidth * 100}%`).color-scale__background-item.color-scale__background-item--green
-      div(style = `width: ${yellowWidth / fullWidth * 100}%`).color-scale__background-item.color-scale__background-item--yellow
-      //- последний item flex-grow: 1, следовательно размер будет вычислен автоматически
-      .color-scale__background-item.color-scale__background-item--red
-    .color-scale__value
-      -
-        const
-          valueWidth = fullWidth * value,
-          bodyWidth = valueWidth - valueGap - tailWidth;
-      div(style = `width: ${bodyWidth / fullWidth * 100}%`).color-scale__value-body
-      div(style = `width: ${tailWidth / fullWidth * 100}%; margin-left: ${valueGap / fullWidth * 100}%`).color-scale__value-tail
+    div(class = classList).color-scale
+        .color-scale__background
+            div(style = `width: ${greenWidth / fullWidth * 100}%`).color-scale__background-item.color-scale__background-item--green
+            div(style = `width: ${yellowWidth / fullWidth * 100}%`).color-scale__background-item.color-scale__background-item--yellow
+            //- последний item flex-grow: 1, следовательно размер будет вычислен автоматически
+            .color-scale__background-item.color-scale__background-item--red
+        .color-scale__value
+            -
+                const
+                    valueWidth = fullWidth * value,
+                    bodyWidth = valueWidth - valueGap - tailWidth;
+            div(style = `width: ${bodyWidth / fullWidth * 100}%`).color-scale__value-body
+            div(style = `width: ${tailWidth / fullWidth * 100}%; margin-left: ${valueGap / fullWidth * 100}%`).color-scale__value-tail
 
 
 
 //- color-indicator
-
 mixin color-indicator(classList)
-  div(class = classList).color-indicator
-    .color-indicator__list
-      each item in [{ number: 1, value: 0.33 }, { number: 2, value: 0.3 }]
-        .color-indicator__item
-          .color-indicator__item-number=item.number
-          +color-scale(item.value, "color-indicator__item-scale")
-    .color-indicator__scale
-      each value in [-50, -40, -30, -25, -20, -15, -10, -5, 0]
-        .color-indicator__scale-item=value
+    div(class = classList).color-indicator
+        .color-indicator__list
+            each item in [{ number: 1, value: 0.33 }, { number: 2, value: 0.3 }]
+                .color-indicator__item
+                    .color-indicator__item-number=item.number
+                    +color-scale(item.value, "color-indicator__item-scale")
+        .color-indicator__scale
+            each value in [-50, -40, -30, -25, -20, -15, -10, -5, 0]
+                .color-indicator__scale-item=value
