@@ -58,11 +58,19 @@ mixin battery(charge = 1)
 
 
 //- scroll down
-mixin scroll-down(classList)
+mixin scroll-down(classList, lang)
     div(class = classList).scroll-down
-        .scroll-down__button листайте
-            br
-            | вниз
+        case lang
+            when "en"
+                .scroll-down__button
+                    |scroll 
+                    br
+                    |down
+            default
+                .scroll-down__button
+                    |листайте 
+                    br
+                    |вниз
 
 //- rec-indicator
 

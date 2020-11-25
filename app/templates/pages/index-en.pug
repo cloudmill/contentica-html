@@ -61,11 +61,11 @@ block content
 
                         ul.logo__lang-list
                             
-                            li.logo__lang-item.logo__lang-item--active
+                            li.logo__lang-item
                                 
                                 a(href="index.html").logo__lang-link ru
                             
-                            li.logo__lang-item
+                            li.logo__lang-item.logo__lang-item--active
                                 
                                 a(href="index-en.html").logo__lang-link en
                     
@@ -73,21 +73,21 @@ block content
                 
 
                 h1.page-title.page-title--line-break.header__title
-                    | Производим, 
+                    |We produce, 
                     br
-                    | дистрибутируем, 
+                    |distribute, 
                     br
-                    | озвучиваем 
+                    |voice-over 
                     br
-                    | и субтитрируем 
+                    |and subtitle 
                     br
-                    | видеоконтент
+                    |video content
                 
 
                 .header__line.header__line--bottom
                     .header__group.header__group--battery-scroll
                         +battery(0)
-                        +scroll-down("scroll-down--margin-top")
+                        +scroll-down("scroll-down--margin-top", "en")
                     .header__line.header__line--align-end
                         +rec-indicator
                         .header__line.header__line--margin-left
@@ -106,96 +106,88 @@ block content
                             source(src="https://www.dl.dropboxusercontent.com/s/ljm7hd1c25wynpw/%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC_1.mp4?dl=0" type="video/mp4")
                     h2.main__section-title
                         .main__section-size
-                            | Производство
+                            |TV show 
                             br
-                            | программ
+                            |production
                             .main__section-service
-                                span.main__section-line Производство
+                                span.main__section-line TV show 
                                 br
-                                span.main__section-line программ
+                                span.main__section-line production
                         .main__section-description
                             .main__section-text
-                                | Производство различных программ и шоу для телевидения и VOD платформ. Сотрудничаем как с российскими телеканалами, так и с каналами стран СНГ. Постоянное производство, большие объемы. Спросите нас, и мы расскажем и покажем, что было снято в последние месяцы.
+                                |Production of various TV shows for broadcasting and VOD platforms. We collaborate with both Russian and CIS TV channels. Constant production, high volume. Just ask us, and we will show you content that has been shot in recent months.
                 section.main__section(data-section="1")
                     .main__section-content
                         video(preload="auto", playsinline, autoplay, loop, muted).main__section-video
                             source(src="https://www.dl.dropboxusercontent.com/s/njvwl2cgend00pq/distr.mp4?dl=0" type="video/mp4")
                     h2.main__section-title
                         .main__section-size
-                            | дистрибуция
+                            |Rights 
                             br
-                            | прав
+                            |distribution
                             .main__section-service
-                                span.main__section-line дистрибуция
+                                span.main__section-line Rights 
                                 br
-                                span.main__section-line прав
+                                span.main__section-line distribution
                         .main__section-description
                             .main__section-text
-                                | Дистрибуция всех видов прав на видеоконтент. Ежегодный объем сделок – свыше 7 тысяч часов.
+                                |Distribution of all types of rights to video content. The annual contracts for more than 7,000 hours.
                 section.main__section(data-section="2")
                     .main__section-content
                         video(preload="auto", playsinline, autoplay, loop, muted).main__section-video
                             source(src="https://www.dl.dropboxusercontent.com/s/6r62n59lbzbft9p/konsult.mp4?dl=0" type="video/mp4")
                     h2.main__section-title
                         .main__section-size
-                            | консультация
+                            |TV grid 
                             br
-                            | телеканалов
-                            br
-                            | по сетке
+                            |consulting
                             .main__section-service
-                                span.main__section-line консультация
+                                span.main__section-line TV grid 
                                 br
-                                span.main__section-line телеканалов
-                                br
-                                span.main__section-line по сетке
+                                span.main__section-line consulting
                         .main__section-description
                             .main__section-text
-                                | Свежий, незамыленный взгляд на сетку, иногда со стороны проще увидеть решение. Формат может быть как единоразовым, так и на регулярной основе, например, в формате еженедельных летучек по сетке.
+                                |Fresh eyes on your TV grid: sometimes it's easier to see the solution from the outside. It can be either a single consultation on the line-up or regular ones, e.g. in the format of weekly briefings.
                 section.main__section(data-section="3")
                     .main__section-content
                         video(preload="auto", playsinline, autoplay, loop, muted).main__section-video
                             source(src="https://www.dl.dropboxusercontent.com/s/5q6ejje69rrva66/04_recording.mp4?dl=0" type="video/mp4")
                     h2.main__section-title
                         .main__section-size
-                            | Озвучивание
+                            |Dub
                             .main__section-service
-                                span.main__section-line Озвучивание
+                                span.main__section-line Dub
                         .main__section-description
                             .main__section-text
-                                | Собственная студия озвучивания, отдельное внимание уделяем работе с текстом, от перевода до укладки. Сотрудничаем с крупными международными сетями, при необходимости можем озвучить носителем языка практически на любой язык мира.
+                                |We have our own dubbing studio. We pay special attention to working with text. We collaborate with international networks, and if necessary, we can find a native speaker to voice over a text in almost any language in the world.
                 section.main__section(data-section="4")
                     .main__section-content
                         video(preload="auto", playsinline, autoplay, loop, muted).main__section-video
                             source(src="https://www.dl.dropboxusercontent.com/s/x9mwuht3431hweo/subs.mp4?dl=0" type="video/mp4")
                     h2.main__section-title
                         .main__section-size
-                            | производство
-                            br
-                            | субтитров
+                            |Subtitling
                             .main__section-service
-                                span.main__section-line производство
-                                br
-                                span.main__section-line субтитров
+                                span.main__section-line Subtitling
                         .main__section-description
                             .main__section-text
-                                | Собственная студия производства субтитров. Большой собственный штат сотрудников, прошедших строгий отбор, в том числе на предмет идеальной грамотности.
+                                |We have our own subtitle production studio. Our large permanent staff has gone through a rigorous selection process to ensure the highest standards of language proficiency.
                 section.main__section(data-section="5")
                     .main__section-content
                         video(preload="auto", playsinline, autoplay, loop, muted).main__section-video
                             source(src="https://www.dl.dropboxusercontent.com/s/4dmddjhflwx3tbj/event.mp4?dl=0" type="video/mp4")
                     h2.main__section-title
                         .main__section-size
-                            | Событийный
+                            |Event 
                             br
-                            | маркетинг
+                            |marketing
                             .main__section-service
-                                span.main__section-line Событийный
+                                span.main__section-line Event 
                                 br
-                                span.main__section-line маркетинг
+                                span.main__section-line marketing
                         .main__section-description
                             .main__section-text
-                                | Оффлайн и онлайн мероприятия, опыт работы с представительствами крупных международных компаний.
+                                |Offline and online events. We are experienced in working with representative offices of large international companies.
         
 
         footer.page__footer

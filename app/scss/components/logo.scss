@@ -62,11 +62,10 @@
 }
 
 .logo__lang-item {
+    border-bottom: 1px solid transparent;
     font-size: 20px;
     line-height: 90%;
     text-transform: uppercase;
-    cursor: pointer;
-    border-bottom: 1px solid transparent;
     transition: $ease-main;
 
     &:not(:first-child) {
