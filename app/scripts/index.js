@@ -166,7 +166,7 @@ function languageSwitcher() {
                 <br>consulting
             `,
             `
-                Dubbing Over
+                Dubbing
             `,
             `
                 Subtitling
@@ -255,7 +255,7 @@ function languageSwitcher() {
             `,
             `
                 <span class="main__section-line">
-                    Dubbing Over
+                    Dubbing
                 </span>
             `,
             `
